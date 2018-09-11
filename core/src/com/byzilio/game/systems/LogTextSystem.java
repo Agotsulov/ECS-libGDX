@@ -1,13 +1,14 @@
 package com.byzilio.game.systems;
 
-import com.byzilio.engine.Engine;
+import com.byzilio.engine.Container;
 import com.byzilio.engine.Entity;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
 import com.byzilio.game.components.LogTextComponent;
+import com.byzilio.game.enitites.ArrayListEntity;
 
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
 public class LogTextSystem extends System{
@@ -16,12 +17,6 @@ public class LogTextSystem extends System{
 
     public LogTextSystem() {
         setName("LogTextSystem");
-    }
-
-    @Override
-    public void create(Engine engine) {
-        super.create(engine);
-        log("create");
     }
 
     @Override
@@ -55,11 +50,9 @@ public class LogTextSystem extends System{
         }
         if (gameObject instanceof Entity) {
             Entity e = (Entity) gameObject;
-            List<GameObject> gameObjects = e.getAll(LogTextComponent.class);
-            for(GameObject go: gameObjects)
-                components.add((LogTextComponent) go);
-            //Разобраться почему не работает. А то это не красиво.
-            //components.addAll((Collection<? extends LogTextComponent>) gameObjects);
+            Container<GameObject> gameObjects = e.getAll(LogTextComponent.class);
+            for(int j = 0; j < gameObjects.size();j++)
+                components.add((LogTextComponent) gameObjects.get(j));
         }
     }
 
@@ -71,9 +64,9 @@ public class LogTextSystem extends System{
         }
         if (gameObject instanceof Entity) {
             Entity e = (Entity) gameObject;
-            List<GameObject> gameObjects = e.getAll(LogTextComponent.class);
-            for(GameObject go: gameObjects)
-                components.add(i, (LogTextComponent) go);
+            Container<GameObject> gameObjects = e.getAll(LogTextComponent.class);
+            for(int j = 0; j < gameObjects.size();j++)
+                components.add(i + j, (LogTextComponent) gameObjects.get(j));
         }
     }
 
@@ -106,4 +99,25 @@ public class LogTextSystem extends System{
     public boolean remove(Object o) {
         return components.remove(o);
     }
+
+    @Override
+    public GameObject get(String name) {
+        return null;
+    }
+
+    @Override
+    public GameObject get(Class c) {
+        return null;
+    }
+
+    @Override
+    public Container<GameObject> getAll(String name) {
+        return null;
+    }
+
+    @Override
+    public Container<GameObject> getAll(Class c) {
+        return null;
+    }
+
 }

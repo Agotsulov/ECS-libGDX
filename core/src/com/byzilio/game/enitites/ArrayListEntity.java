@@ -81,8 +81,8 @@ public class ArrayListEntity extends Entity {
     }
 
     @Override
-    public List<GameObject> getAll(String name) {
-        List<GameObject> result = new ArrayList<GameObject>();
+    public Container<GameObject> getAll(String name) {
+        Container<GameObject> result = new ArrayListEntity(); //Много лишнего убрать
         for(int i = 0;i < gameObjects.size();i++){
             GameObject go = gameObjects.get(i);
             if(go.getName().equals(name))
@@ -92,8 +92,8 @@ public class ArrayListEntity extends Entity {
     }
 
     @Override
-    public List<GameObject> getAll(Class c) {
-        List<GameObject> result = new ArrayList<GameObject>();
+    public Container<GameObject> getAll(Class c) {
+        Container<GameObject> result = new ArrayListEntity();
         for(int i = 0;i < gameObjects.size();i++){
             GameObject go = gameObjects.get(i);
             if(GameObject.class.isInstance(go))

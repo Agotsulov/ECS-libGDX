@@ -1,5 +1,6 @@
 package com.byzilio.game.engines;
 
+import com.byzilio.engine.Container;
 import com.byzilio.engine.Engine;
 
 import java.util.ArrayList;
@@ -86,13 +87,13 @@ public class ArrayListEngine extends Engine{
     @Override
     public void add(System system) {
         systems.add(system);
-        system.create(this);
+        system.create(this, null);
     }
 
     @Override
     public void add(int i, System system) {
         systems.add(i,system);
-        system.create(this);
+        system.create(this, null);
     }
 
     @Override
@@ -125,5 +126,25 @@ public class ArrayListEngine extends Engine{
     @Override
     public boolean remove(Object o) {
         return systems.remove(o);
+    }
+
+    @Override
+    public GameObject get(String name) {
+        return null;
+    }
+
+    @Override
+    public GameObject get(Class c) {
+        return null;
+    }
+
+    @Override
+    public Container<GameObject> getAll(String name) {
+        return null;
+    }
+
+    @Override
+    public Container<GameObject> getAll(Class c) {
+        return null;
     }
 }

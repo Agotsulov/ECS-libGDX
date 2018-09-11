@@ -18,4 +18,16 @@ public interface Container<T extends GameObject> {
 
     boolean remove(Object o);
 
+    /*
+        Каждый раз их лениво переопределять
+     */
+
+    GameObject get(String name);
+
+    GameObject get(Class c);
+
+    Container<GameObject> getAll(String name);
+
+    Container<GameObject> getAll(Class c);
+
 }

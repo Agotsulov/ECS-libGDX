@@ -1,7 +1,8 @@
 package com.byzilio.engine;
 
 import com.badlogic.gdx.Gdx;
-public abstract class GameObject {
+
+public abstract class GameObject implements IGameObject, Debugable{
 
     protected String name = "GameObject";
 
@@ -11,16 +12,10 @@ public abstract class GameObject {
 
     private boolean debug = true;
 
-    public void create(Engine engine) {
-        this.engine = engine;
-    }
-
     public void create(Engine engine, GameObject gameObject) {
-        create(engine);
+        this.engine = engine;
         this.gameObject = gameObject;
     }
-
-    public abstract void dispose();
 
     public String getName() {
         return name;
