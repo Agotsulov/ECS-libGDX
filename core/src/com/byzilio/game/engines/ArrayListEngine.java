@@ -1,6 +1,6 @@
 package com.byzilio.game.engines;
 
-import com.byzilio.engine.Container;
+import com.byzilio.engine.core.Container;
 import com.byzilio.engine.Engine;
 
 import java.util.ArrayList;

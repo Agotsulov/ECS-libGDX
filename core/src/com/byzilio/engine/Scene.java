@@ -1,10 +1,9 @@
 package com.byzilio.engine;
 
 import com.badlogic.gdx.Gdx;
-import com.byzilio.engine.core.Debugable;
-import com.byzilio.engine.core.IGameObject;
+import com.byzilio.engine.core.IScene;
 
-public abstract class GameObject implements IGameObject, Debugable {
+public abstract class Scene implements IScene {
 
     protected String name = "GameObject";
 
@@ -39,4 +38,5 @@ public abstract class GameObject implements IGameObject, Debugable {
         if(debug)
             Gdx.app.log(name, massage);
     }
+
 }

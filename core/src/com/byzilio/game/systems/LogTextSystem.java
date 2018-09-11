@@ -1,14 +1,12 @@
 package com.byzilio.game.systems;
 
-import com.byzilio.engine.Container;
+import com.byzilio.engine.core.Container;
 import com.byzilio.engine.Entity;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
 import com.byzilio.game.components.LogTextComponent;
-import com.byzilio.game.enitites.ArrayListEntity;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class LogTextSystem extends System{

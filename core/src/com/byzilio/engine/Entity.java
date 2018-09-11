@@ -1,8 +1,7 @@
 package com.byzilio.engine;
 
-import java.lang.reflect.Type;
-import java.util.List;
+import com.byzilio.engine.core.IEngine;
 
-public abstract class Entity extends GameObject implements Container<GameObject> {
+public abstract class Entity implements IEngine{
 
 }

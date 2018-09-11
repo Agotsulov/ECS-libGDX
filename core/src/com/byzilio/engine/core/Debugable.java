@@ -1,4 +1,4 @@
-package com.byzilio.engine;
+package com.byzilio.engine.core;
 
 public interface Debugable {
 

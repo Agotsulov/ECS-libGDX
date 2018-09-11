@@ -1,4 +1,7 @@
-package com.byzilio.engine;
+package com.byzilio.engine.core;
+
+import com.byzilio.engine.Engine;
+import com.byzilio.engine.GameObject;
 
 public interface IGameObject {
 
