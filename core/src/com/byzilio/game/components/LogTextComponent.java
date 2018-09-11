@@ -6,8 +6,14 @@ public class LogTextComponent extends Component {
 
     private String text = "TEST";
 
+
+    public LogTextComponent(String text) {
+        this.text = text;
+        setName("LogTextComponent");
+    }
+
     public LogTextComponent() {
-        setName("TestComponent");
+        setName("LogTextComponent");
     }
 
     public String getText() {

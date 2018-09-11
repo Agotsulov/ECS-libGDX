@@ -6,5 +6,8 @@ import com.byzilio.engine.core.IEngine;
 
 public abstract class Engine implements Screen, IEngine {
 
+    /*
+        Убрать
+     */
 
 }

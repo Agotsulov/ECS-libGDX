@@ -48,9 +48,10 @@ public class LogTextSystem extends System{
         }
         if (gameObject instanceof Entity) {
             Entity e = (Entity) gameObject;
-            Container<GameObject> gameObjects = e.getAll(LogTextComponent.class);
+            Container<GameObject> gameObjects = e.getAll("LogTextComponent");
             for(int j = 0; j < gameObjects.size();j++)
-                components.add((LogTextComponent) gameObjects.get(j));
+                if(gameObjects.get(j) instanceof LogTextComponent) //Узнать что за тип переменных в instansceof
+                    components.add((LogTextComponent) gameObjects.get(j));
         }
     }
 
@@ -62,8 +63,9 @@ public class LogTextSystem extends System{
         }
         if (gameObject instanceof Entity) {
             Entity e = (Entity) gameObject;
-            Container<GameObject> gameObjects = e.getAll(LogTextComponent.class);
+            Container<GameObject> gameObjects = e.getAll("LogTextComponent");
             for(int j = 0; j < gameObjects.size();j++)
+                if(gameObjects.get(j) instanceof LogTextComponent)
                 components.add(i + j, (LogTextComponent) gameObjects.get(j));
         }
     }

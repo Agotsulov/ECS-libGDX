@@ -1,5 +1,6 @@
 package com.byzilio.game.engines;
 
+import com.byzilio.engine.Scene;
 import com.byzilio.engine.core.Container;
 import com.byzilio.engine.Engine;
 
@@ -12,30 +13,25 @@ import com.byzilio.engine.System;
 import com.byzilio.game.components.LogTextComponent;
 import com.byzilio.game.enitites.ArrayListEntity;
 import com.byzilio.game.systems.LogTextSystem;
+import com.byzilio.game.systems.RenderSystem;
 
 public class ArrayListEngine extends Engine{
 
     private List<System> systems = new ArrayList<System>();
-    private List<GameObject> gameObjects = new ArrayList<GameObject>();
+    private Scene scene;
 
-    public ArrayListEngine() {
+
+    public ArrayListEngine(Scene scene) {
         add(new LogTextSystem());
+        add(new RenderSystem());
+        
+        changeScene(scene);
+    }
 
-        Entity e = new ArrayListEntity();
-        e.add(new LogTextComponent());
-        e.add(new LogTextComponent());
-        e.add(new LogTextComponent());
-        e.add(new LogTextComponent());
-        e.add(new LogTextComponent());
-        gameObjects.add(e);
-
-        //Спрятать это в класс Scene?
-        for(int i = 0;i < systems.size();i++){
-            for(int j = 0;j < gameObjects.size();j++){
-                systems.get(i).add(gameObjects.get(j));
-            }
-        }
-
+    @Override
+    public void changeScene(Scene scene) {
+        this.scene = scene;
+        this.scene.create(this, null);
     }
 
     @Override
@@ -147,4 +143,6 @@ public class ArrayListEngine extends Engine{
     public Container<GameObject> getAll(Class c) {
         return null;
     }
+
+
 }
