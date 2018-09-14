@@ -38,13 +38,20 @@ public class Game extends com.badlogic.gdx.Game {
 		scene.add(e);
 
 
-		/*
-			TODO:
-			Разобраться почему ничего не рисуется. RenderSystem работает.
-		 */
+
 		e = new ArrayListEntity();
 		e.add(new Position(10, 10));
 		e.add(new Sprite(new Texture("badlogic.jpg"), 100, 120));
+		scene.add(e);
+
+		e = new ArrayListEntity();
+		e.add(new Position(110, 10));
+		e.add(new Sprite(new Texture("badlogic.jpg"), 50, 220));
+		scene.add(e);
+
+		e = new ArrayListEntity();
+		e.add(new Position(0, 30));
+		e.add(new Sprite(new Texture("badlogic.jpg"), 10, 20));
 		scene.add(e);
 
 		engine = new ArrayListEngine(scene);
@@ -55,8 +62,8 @@ public class Game extends com.badlogic.gdx.Game {
 	@Override
 	public void render () {
 		super.render();
-		Gdx.gl.glClearColor(0, 0, 0, 1);
-		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		//Gdx.gl.glClearColor(0, 0, 0, 1);
+		//Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
 		//batch.begin();
 		//batch.draw(img, 0, 0);

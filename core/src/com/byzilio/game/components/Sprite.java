@@ -42,8 +42,9 @@ public class Sprite extends Rendeable {
 
     @Override
     public void draw(float x, float y, float scale, SpriteBatch batch) {
+        log("DRAW " + x + " " + y + " " + scale + " " + batch);
         batch.draw(texture, x, y, w * scale,  h * scale);
-        batch.draw(new Texture("badlogic.jpg"), 0, 0);
+        //batch.draw(new Texture("badlogic.jpg"), 0, 0);
     }
 
     @Override

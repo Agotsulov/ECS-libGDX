@@ -67,10 +67,8 @@ public class RenderSystem extends System{
             for(int j = 0; j < current.rendeables.size(); j++){
                 Rendeable rendeable = current.rendeables.get(j);
                 rendeable.draw(current.position.getX(), current.position.getY(), scale, batch);
-                batch.draw(new Texture("badlogic.jpg"),100,100,100,200);
             }
         }
-        batch.draw(new Texture("badlogic.jpg"),100,100,100,200);
         batch.flush();
     }
 

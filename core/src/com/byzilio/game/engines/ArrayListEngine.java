@@ -1,5 +1,6 @@
 package com.byzilio.game.engines;
 
+import com.badlogic.gdx.Gdx;
 import com.byzilio.engine.Scene;
 import com.byzilio.engine.core.Container;
 import com.byzilio.engine.Engine;
@@ -24,7 +25,7 @@ public class ArrayListEngine extends Engine{
     public ArrayListEngine(Scene scene) {
         add(new LogTextSystem());
         add(new RenderSystem());
-        
+
         changeScene(scene);
     }
 
@@ -41,6 +42,8 @@ public class ArrayListEngine extends Engine{
 
     @Override
     public void render(float delta) {
+        Gdx.app.log("Engine","update");
+
         for (int i = 0;i < systems.size();i++){
             systems.get(i).preUpdate();
         }
