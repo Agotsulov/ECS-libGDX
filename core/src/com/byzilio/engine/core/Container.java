@@ -2,23 +2,8 @@ package com.byzilio.engine.core;
 
 import com.byzilio.engine.GameObject;
 
-public interface Container<T extends GameObject> {
-
-    void add(T t);
-
-    void add(int i,T t);
-
+public interface Container<T extends GameObject> extends GameCollection<T> {
     T get(int i);
-
-    int size();
-
-    void clear();
-
-    boolean isEmpty();
-
-    T remove(int i);
-
-    boolean remove(Object o);
 
     /*
         Каждый раз их лениво переопределять

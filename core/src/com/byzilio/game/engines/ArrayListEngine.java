@@ -1,22 +1,19 @@
 package com.byzilio.game.engines;
 
 import com.badlogic.gdx.Gdx;
-import com.byzilio.engine.Scene;
-import com.byzilio.engine.core.Container;
-import com.byzilio.engine.Engine;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.byzilio.engine.Entity;
+import com.byzilio.engine.Scene;
+import com.byzilio.engine.core.Container;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
-import com.byzilio.game.components.LogTextComponent;
-import com.byzilio.game.enitites.ArrayListEntity;
+import com.byzilio.engine.core.Engine;
 import com.byzilio.game.systems.LogTextSystem;
 import com.byzilio.game.systems.RenderSystem;
 
-public class ArrayListEngine extends Engine{
+public class ArrayListEngine implements Engine {
 
     private List<System> systems = new ArrayList<System>();
     private Scene scene;

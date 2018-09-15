@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.byzilio.engine.Engine;
+import com.byzilio.engine.core.Engine;
 import com.byzilio.engine.Entity;
 import com.byzilio.engine.Scene;
 import com.byzilio.game.components.LogTextComponent;

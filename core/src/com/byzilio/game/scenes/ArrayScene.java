@@ -1,6 +1,6 @@
 package com.byzilio.game.scenes;
 
-import com.byzilio.engine.Engine;
+import com.byzilio.engine.core.Engine;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.Scene;
 import com.byzilio.engine.core.Container;

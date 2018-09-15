@@ -1,15 +1,10 @@
 package com.byzilio.game.systems;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.byzilio.engine.Engine;
+import com.byzilio.engine.core.Engine;
 import com.byzilio.engine.Entity;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
-import com.byzilio.engine.core.Container;
-import com.byzilio.game.components.LogTextComponent;
 import com.byzilio.game.components.Position;
 import com.byzilio.game.components.Rendeable;
 
@@ -122,11 +117,6 @@ public class RenderSystem extends System{
     }
 
     @Override
-    public GameObject get(int i) {
-        return drawObjects.get(i).position;
-    }
-
-    @Override
     public int size() {
         return drawObjects.size();
     }
@@ -152,27 +142,6 @@ public class RenderSystem extends System{
     public boolean remove(Object o) {
         return drawObjects.remove(o);
     }
-
-    @Override
-    public GameObject get(String name) {
-        return null;
-    }
-
-    @Override
-    public GameObject get(Class c) {
-        return null;
-    }
-
-    @Override
-    public Container<GameObject> getAll(String name) {
-        return null;
-    }
-
-    @Override
-    public Container<GameObject> getAll(Class c) {
-        return null;
-    }
-
 
 
     @Override

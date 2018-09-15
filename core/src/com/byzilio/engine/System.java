@@ -1,8 +1,8 @@
 package com.byzilio.engine;
 
-import com.byzilio.engine.core.Container;
+import com.byzilio.engine.core.GameCollection;
 
-public abstract class System extends GameObject implements Container<GameObject> {
+public abstract class System extends GameObject implements GameCollection<GameObject> {
 
     public abstract void preUpdate();
 

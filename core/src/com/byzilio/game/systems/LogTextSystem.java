@@ -71,11 +71,6 @@ public class LogTextSystem extends System{
     }
 
     @Override
-    public GameObject get(int i) {
-        return components.get(i);
-    }
-
-    @Override
     public int size() {
         return components.size();
     }
@@ -100,24 +95,5 @@ public class LogTextSystem extends System{
         return components.remove(o);
     }
 
-    @Override
-    public GameObject get(String name) {
-        return null;
-    }
-
-    @Override
-    public GameObject get(Class c) {
-        return null;
-    }
-
-    @Override
-    public Container<GameObject> getAll(String name) {
-        return null;
-    }
-
-    @Override
-    public Container<GameObject> getAll(Class c) {
-        return null;
-    }
 
 }
