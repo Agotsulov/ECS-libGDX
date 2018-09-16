@@ -1,40 +1,26 @@
-package com.byzilio.game.scenes;
+package com.byzilio.game.core;
 
-import com.byzilio.engine.core.Engine;
-import com.byzilio.engine.GameObject;
-import com.byzilio.engine.Scene;
 import com.byzilio.engine.core.Container;
-import com.byzilio.game.enitites.ArrayListEntity;
+import com.byzilio.engine.Entity;
+import com.byzilio.engine.GameObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayScene extends Scene {
+public class ArrayListEntity extends Entity {
 
     private List<GameObject> gameObjects = new ArrayList<GameObject>();
-
-
-
-    @Override
-    public void create(Engine engine, GameObject gameObject) {
-        super.create(engine, gameObject);
-        for(int i = 0;i < engine.size();i++){
-            for(int j = 0;j < gameObjects.size();j++){
-                engine.get(i).add(gameObjects.get(j));
-            }
-        }
-    }
 
     @Override
     public void add(GameObject gameObject) {
         gameObjects.add(gameObject);
-        gameObject.create(engine,null);
+        gameObject.create(engine,this);
     }
 
     @Override
     public void add(int i, GameObject gameObject) {
         gameObjects.add(i, gameObject);
-        gameObject.create(engine,null);
+        gameObject.create(engine,this);
     }
 
     @Override
@@ -109,8 +95,10 @@ public class ArrayScene extends Scene {
         Container<GameObject> result = new ArrayListEntity();
         for(int i = 0;i < gameObjects.size();i++){
             GameObject go = gameObjects.get(i);
-            if(GameObject.class.isInstance(go))
+            if(GameObject.class.isInstance(go)) {//Неправильно работает
+                log(GameObject.class.isInstance(go) + "");
                 result.add(go);
+            }
         }
         return result;
     }

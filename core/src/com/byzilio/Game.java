@@ -1,18 +1,16 @@
 package com.byzilio;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.byzilio.engine.core.Engine;
 import com.byzilio.engine.Entity;
 import com.byzilio.engine.Scene;
 import com.byzilio.game.components.LogTextComponent;
 import com.byzilio.game.components.Position;
 import com.byzilio.game.components.Sprite;
-import com.byzilio.game.engines.ArrayListEngine;
-import com.byzilio.game.enitites.ArrayListEntity;
-import com.byzilio.game.scenes.ArrayScene;
+import com.byzilio.game.core.ArrayListEngine;
+import com.byzilio.game.core.ArrayListEntity;
+import com.byzilio.game.core.ArrayScene;
+import com.byzilio.game.systems.LogTextSystem;
 import com.byzilio.game.systems.RenderSystem;
 
 public class Game extends com.badlogic.gdx.Game {
@@ -54,7 +52,12 @@ public class Game extends com.badlogic.gdx.Game {
 		e.add(new Sprite(new Texture("badlogic.jpg"), 10, 20));
 		scene.add(e);
 
-		engine = new ArrayListEngine(scene);
+		engine = new ArrayListEngine();
+		//engine.add(new ScriptSystem());
+		engine.add(new LogTextSystem());
+		engine.add(new RenderSystem());
+
+		engine.changeScene(scene);
 
 		setScreen(engine);
 	}

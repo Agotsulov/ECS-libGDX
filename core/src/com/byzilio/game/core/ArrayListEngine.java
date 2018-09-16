@@ -1,4 +1,4 @@
-package com.byzilio.game.engines;
+package com.byzilio.game.core;
 
 import com.badlogic.gdx.Gdx;
 
@@ -19,17 +19,13 @@ public class ArrayListEngine implements Engine {
     private Scene scene;
 
 
-    public ArrayListEngine(Scene scene) {
-        add(new LogTextSystem());
-        add(new RenderSystem());
-
-        changeScene(scene);
-    }
-
     @Override
     public void changeScene(Scene scene) {
         this.scene = scene;
         this.scene.create(this, null);
+        for(int i = 0;i < size();i++){
+            get(i).start();
+        }
     }
 
     @Override
