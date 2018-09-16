@@ -10,8 +10,10 @@ import com.byzilio.game.components.Sprite;
 import com.byzilio.game.core.ArrayListEngine;
 import com.byzilio.game.core.ArrayListEntity;
 import com.byzilio.game.core.ArrayScene;
+import com.byzilio.game.scripts.TestScript;
 import com.byzilio.game.systems.LogTextSystem;
 import com.byzilio.game.systems.RenderSystem;
+import com.byzilio.game.systems.ScriptSystem;
 
 public class Game extends com.badlogic.gdx.Game {
 
@@ -49,11 +51,12 @@ public class Game extends com.badlogic.gdx.Game {
 
 		e = new ArrayListEntity();
 		e.add(new Position(0, 30));
+		e.add(new TestScript());
 		e.add(new Sprite(new Texture("badlogic.jpg"), 10, 20));
 		scene.add(e);
 
 		engine = new ArrayListEngine();
-		//engine.add(new ScriptSystem());
+		engine.add(new ScriptSystem());
 		engine.add(new LogTextSystem());
 		engine.add(new RenderSystem());
 

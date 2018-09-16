@@ -95,7 +95,7 @@ public class ArrayListEntity extends Entity {
         Container<GameObject> result = new ArrayListEntity();
         for(int i = 0;i < gameObjects.size();i++){
             GameObject go = gameObjects.get(i);
-            if(GameObject.class.isInstance(go)) {//Неправильно работает
+            if(GameObject.class.isInstance(go)) {//Неправильно работает или правильно?
                 log(GameObject.class.isInstance(go) + "");
                 result.add(go);
             }
