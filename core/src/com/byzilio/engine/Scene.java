@@ -1,5 +1,7 @@
 package com.byzilio.engine;
 
-public abstract class Scene extends Entity{
+import com.byzilio.engine.core.Container;
+
+public abstract class Scene extends GameObject implements Container<Component>{
 
 }

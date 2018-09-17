@@ -9,12 +9,12 @@ public interface Container<T extends GameObject> extends GameCollection<T> {
         Каждый раз их лениво переопределять
      */
 
-    GameObject get(String name);
+    T get(String name);
 
-    GameObject get(Class c);
+    T get(Class c);
 
-    Container<GameObject> getAll(String name);
+    Container<T> getAll(String name);
 
-    Container<GameObject> getAll(Class c);
+    Container<T> getAll(Class c);
 
 }

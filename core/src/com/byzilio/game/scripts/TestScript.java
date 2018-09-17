@@ -6,17 +6,17 @@ public class TestScript extends Script {
 
     public TestScript() {
         setName("TestScript");
-        setDebug(false);
+        setDebug(true);
     }
 
     @Override
     public void start() {
-        log("start");
+        //log("start");
     }
 
     @Override
     public void preUpdate() {
-        log("preUpdate");
+        //log("preUpdate");
     }
 
     @Override
@@ -33,7 +33,7 @@ public class TestScript extends Script {
 
     @Override
     public void postUpdate() {
-        log("postUpdate");
+        //log("postUpdate");
     }
 
     @Override

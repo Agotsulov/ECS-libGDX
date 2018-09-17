@@ -1,5 +1,6 @@
 package com.byzilio.game.core;
 
+import com.byzilio.engine.Component;
 import com.byzilio.engine.Engine;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.Scene;
@@ -10,13 +11,11 @@ import java.util.List;
 
 public class ArrayScene extends Scene {
 
-    private List<GameObject> gameObjects = new ArrayList<GameObject>();
-
-
+    private List<Component> gameObjects = new ArrayList<Component>();
 
     @Override
-    public void create(Engine engine, GameObject gameObject) {
-        super.create(engine, gameObject);
+    public void create(Engine engine) {
+        super.create(engine);
         refreshSystems();
         refreshGameObjects();
     }
@@ -29,27 +28,27 @@ public class ArrayScene extends Scene {
 
     private void refreshGameObjects(){
         for(int j = 0;j < gameObjects.size();j++)
-            gameObjects.get(j).create(engine, this);
+            gameObjects.get(j).create(engine);
     }
 
     @Override
-    public void add(GameObject gameObject) {
+    public void add(Component gameObject) {
         gameObjects.add(gameObject);
-        gameObject.create(engine,null);
+        gameObject.create(engine);
         for(int i = 0;i < engine.size();i++)
             engine.get(i).add(gameObject);
     }
 
     @Override
-    public void add(int i, GameObject gameObject) {
+    public void add(int i, Component gameObject) {
         gameObjects.add(i, gameObject);
-        gameObject.create(engine,null);
+        gameObject.create(engine);
         for(int j = 0;j < engine.size();j++)
             engine.get(j).add(gameObject);
     }
 
     @Override
-    public GameObject get(int i) {
+    public Component get(int i) {
         return gameObjects.get(i);
     }
 
@@ -72,7 +71,7 @@ public class ArrayScene extends Scene {
     }
 
     @Override
-    public GameObject remove(int i) {
+    public Component remove(int i) {
         return gameObjects.remove(i);
     }
 
@@ -88,9 +87,9 @@ public class ArrayScene extends Scene {
     }
 
     @Override
-    public GameObject get(String name) {
+    public Component get(String name) {
         for(int i = 0;i < gameObjects.size();i++){
-            GameObject go = gameObjects.get(i);
+            Component go = gameObjects.get(i);
             if(go.getName().equals(name))
                 return go;
         }
@@ -98,20 +97,20 @@ public class ArrayScene extends Scene {
     }
 
     @Override
-    public GameObject get(Class c) {
+    public Component get(Class c) {
         for(int i = 0;i < gameObjects.size();i++){
-            GameObject go = gameObjects.get(i);
-            if(GameObject.class.isInstance(go))
+            Component go = gameObjects.get(i);
+            if(c.isInstance(go))
                 return go;
         }
         return null;
     }
 
     @Override
-    public Container<GameObject> getAll(String name) {
-        Container<GameObject> result = new ArrayListEntity(); //Много лишнего убрать
+    public Container<Component> getAll(String name) {
+        Container<Component> result = new ArrayListContainer<Component>(); //Много лишнего убрать
         for(int i = 0;i < gameObjects.size();i++){
-            GameObject go = gameObjects.get(i);
+            Component go = gameObjects.get(i);
             if(go.getName().equals(name))
                 result.add(go);
         }
@@ -119,11 +118,11 @@ public class ArrayScene extends Scene {
     }
 
     @Override
-    public Container<GameObject> getAll(Class c) {
-        Container<GameObject> result = new ArrayListEntity();
+    public Container<Component> getAll(Class c) {
+        Container<Component> result = new ArrayListContainer<Component>();
         for(int i = 0;i < gameObjects.size();i++){
-            GameObject go = gameObjects.get(i);
-            if(GameObject.class.isInstance(go))
+            Component go = gameObjects.get(i);
+            if(c.isInstance(go))
                 result.add(go);
         }
         return result;

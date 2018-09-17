@@ -4,16 +4,34 @@ import com.byzilio.engine.Component;
 
 public class Rigidbody extends Component {
 
+    // TODO:Переписать на векторах.
+
     private float ax = 0;
     private float ay = 0;
 
     private float ux = 0;
     private float uy = 0;
 
+    private float maxUx = 100;
+    private float maxUy = 100;
+
     private float gravity = 0;
 
     private float drag = 0;
     private float angularDrag = 0;
+
+    public Rigidbody(float ax, float ay, float ux, float uy, float maxUx, float maxUy, float gravity, float drag, float angularDrag) {
+        this.ax = ax;
+        this.ay = ay;
+        this.ux = ux;
+        this.uy = uy;
+        this.maxUx = maxUx;
+        this.maxUy = maxUy;
+        this.gravity = gravity;
+        this.drag = drag;
+        this.angularDrag = angularDrag;
+        setName("Rigidbody");
+    }
 
     public float getAx() {
         return ax;
@@ -69,6 +87,22 @@ public class Rigidbody extends Component {
 
     public void setAngularDrag(float angularDrag) {
         this.angularDrag = angularDrag;
+    }
+
+    public float getMaxUx() {
+        return maxUx;
+    }
+
+    public void setMaxUx(float maxUx) {
+        this.maxUx = maxUx;
+    }
+
+    public float getMaxUy() {
+        return maxUy;
+    }
+
+    public void setMaxUy(float maxUy) {
+        this.maxUy = maxUy;
     }
 
     @Override

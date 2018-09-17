@@ -1,5 +1,7 @@
 package com.byzilio.game.systems;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.byzilio.engine.Engine;
 import com.byzilio.engine.Entity;
@@ -44,8 +46,8 @@ public class RenderSystem extends System{
     }
 
     @Override
-    public void create(Engine engine, GameObject gameObject) {
-        super.create(engine, gameObject);
+    public void create(Engine engine) {
+        super.create(engine);
         drawObjects = new ArrayList<DrawObject>();
         batch = new SpriteBatch();
     }
@@ -53,8 +55,8 @@ public class RenderSystem extends System{
     @Override
     public void preUpdate() {
         log("preUpdate");
-        //Gdx.gl.glClearColor(0, 0, 0, 1);
-        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
     }
 
     @Override

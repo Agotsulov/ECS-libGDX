@@ -21,11 +21,6 @@ public class InputSystem extends System {
      */
 
     @Override
-    public void create(Engine engine, GameObject gameObject) {
-        super.create(engine, gameObject);
-    }
-
-    @Override
     public void start() {
         log("start");
         input = engine.input;

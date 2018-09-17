@@ -1,5 +1,6 @@
 package com.byzilio.game.systems;
 
+import com.byzilio.engine.Component;
 import com.byzilio.engine.core.Container;
 import com.byzilio.engine.Entity;
 import com.byzilio.engine.GameObject;
@@ -49,7 +50,7 @@ public class LogTextSystem extends System{
         }
         if (gameObject instanceof Entity) {
             Entity e = (Entity) gameObject;
-            Container<GameObject> gameObjects = e.getAll("LogTextComponent");
+            Container<Component> gameObjects = e.getAll("LogTextComponent");
             for(int j = 0; j < gameObjects.size();j++)
                 if(gameObjects.get(j) instanceof LogTextComponent) //Узнать что за тип переменных в instansceof
                     components.add((LogTextComponent) gameObjects.get(j));
@@ -64,7 +65,7 @@ public class LogTextSystem extends System{
         }
         if (gameObject instanceof Entity) {
             Entity e = (Entity) gameObject;
-            Container<GameObject> gameObjects = e.getAll("LogTextComponent");
+            Container<Component> gameObjects = e.getAll("LogTextComponent");
             for(int j = 0; j < gameObjects.size();j++)
                 if(gameObjects.get(j) instanceof LogTextComponent)
                 components.add(i + j, (LogTextComponent) gameObjects.get(j));

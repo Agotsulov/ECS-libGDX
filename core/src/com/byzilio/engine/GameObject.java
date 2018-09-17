@@ -10,13 +10,10 @@ public abstract class GameObject implements IGameObject, Debugable {
 
     protected Engine engine = null;
 
-    protected GameObject gameObject = null;
-
     private boolean debug = true;
 
-    public void create(Engine engine, GameObject gameObject) {
+    public void create(Engine engine) {
         this.engine = engine;
-        this.gameObject = gameObject;
     }
 
     public Engine getEngine() {
@@ -26,15 +23,7 @@ public abstract class GameObject implements IGameObject, Debugable {
     public void setEngine(Engine engine) {
         this.engine = engine;
     }
-
-    public GameObject getGameObject() {
-        return gameObject;
-    }
-
-    public void setGameObject(GameObject gameObject) {
-        this.gameObject = gameObject;
-    }
-
+    
     public String getName() {
         return name;
     }

@@ -1,5 +1,6 @@
 package com.byzilio.game.core;
 
+import com.byzilio.engine.Component;
 import com.byzilio.engine.Engine;
 import com.byzilio.engine.core.Container;
 import com.byzilio.engine.Entity;
@@ -10,11 +11,22 @@ import java.util.List;
 
 public class ArrayListEntity extends Entity {
 
-    private List<GameObject> gameObjects = new ArrayList<GameObject>();
+    private List<Component> gameObjects;
+
+    public ArrayListEntity() {
+        gameObjects = new ArrayList<Component>();
+        //Кстати как лучше писать. Обьявлять переменные в конструкторах или без разницы.
+    }
 
     @Override
-    public void create(Engine engine, GameObject gameObject) {
-        super.create(engine, gameObject);
+    public void create(Engine engine) {
+        super.create(engine);
+        refreshGameObjects();
+    }
+
+    @Override
+    public void create(Engine engine, Entity entity) {
+        super.create(engine, entity);
         refreshGameObjects();
     }
 
@@ -25,19 +37,19 @@ public class ArrayListEntity extends Entity {
 
 
     @Override
-    public void add(GameObject gameObject) {
+    public void add(Component gameObject) {
         gameObjects.add(gameObject);
         gameObject.create(engine,this);
     }
 
     @Override
-    public void add(int i, GameObject gameObject) {
+    public void add(int i, Component gameObject) {
         gameObjects.add(i, gameObject);
         gameObject.create(engine,this);
     }
 
     @Override
-    public GameObject get(int i) {
+    public Component get(int i) {
         return gameObjects.get(i);
     }
 
@@ -57,7 +69,7 @@ public class ArrayListEntity extends Entity {
     }
 
     @Override
-    public GameObject remove(int i) {
+    public Component remove(int i) {
         return gameObjects.remove(i);
     }
 
@@ -73,9 +85,9 @@ public class ArrayListEntity extends Entity {
     }
 
     @Override
-    public GameObject get(String name) {
+    public Component get(String name) {
         for(int i = 0;i < gameObjects.size();i++){
-            GameObject go = gameObjects.get(i);
+            Component go = gameObjects.get(i);
             if(go.getName().equals(name))
                 return go;
         }
@@ -83,20 +95,20 @@ public class ArrayListEntity extends Entity {
     }
 
     @Override
-    public GameObject get(Class c) {
+    public Component get(Class c) {
         for(int i = 0;i < gameObjects.size();i++){
-            GameObject go = gameObjects.get(i);
-            if(GameObject.class.isInstance(go))
+            Component go = gameObjects.get(i);
+            if(c.isInstance(go))
                 return go;
         }
         return null;
     }
 
     @Override
-    public Container<GameObject> getAll(String name) {
-        Container<GameObject> result = new ArrayListContainer(); //Много лишнего убрать
+    public Container<Component> getAll(String name) {
+        Container<Component> result = new ArrayListContainer(); //Много лишнего убрать
         for(int i = 0;i < gameObjects.size();i++){
-            GameObject go = gameObjects.get(i);
+            Component go = gameObjects.get(i);
             if(go.getName().equals(name))
                 result.add(go);
         }
@@ -104,11 +116,11 @@ public class ArrayListEntity extends Entity {
     }
 
     @Override
-    public Container<GameObject> getAll(Class c) {
-        Container<GameObject> result = new ArrayListContainer();
+    public Container<Component> getAll(Class c) {
+        Container<Component> result = new ArrayListContainer();
         for(int i = 0;i < gameObjects.size();i++){
-            GameObject go = gameObjects.get(i);
-            if(GameObject.class.isInstance(go)) {//Неправильно работает или правио?
+            Component go = gameObjects.get(i);
+            if(c.isInstance(go)) {//Неправильно работает или правио?
                 log(GameObject.class.isInstance(go) + "");
                 result.add(go);
             }

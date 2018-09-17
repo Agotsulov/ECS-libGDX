@@ -5,7 +5,7 @@ import com.byzilio.engine.GameObject;
 
 public interface IGameObject {
 
-    void create(Engine engine, GameObject gameObject);
+    void create(Engine engine);
 
     void dispose();
 

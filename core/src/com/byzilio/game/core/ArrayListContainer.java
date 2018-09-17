@@ -7,22 +7,22 @@ import com.byzilio.engine.core.Container;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayListContainer implements Container {
+public class ArrayListContainer<T extends GameObject> implements Container<T> {
 
-    private List<GameObject> gameObjects = new ArrayList<GameObject>();
+    private List<T> gameObjects = new ArrayList<T>();
 
     @Override
-    public void add(GameObject gameObject) {
+    public void add(T gameObject) {
         gameObjects.add(gameObject);
     }
 
     @Override
-    public void add(int i, GameObject gameObject) {
+    public void add(int i, T gameObject) {
         gameObjects.add(i, gameObject);
     }
 
     @Override
-    public GameObject get(int i) {
+    public T get(int i) {
         return gameObjects.get(i);
     }
 
@@ -42,7 +42,7 @@ public class ArrayListContainer implements Container {
     }
 
     @Override
-    public GameObject remove(int i) {
+    public T remove(int i) {
         return gameObjects.remove(i);
     }
 
@@ -53,9 +53,9 @@ public class ArrayListContainer implements Container {
 
 
     @Override
-    public GameObject get(String name) {
+    public T get(String name) {
         for(int i = 0;i < gameObjects.size();i++){
-            GameObject go = gameObjects.get(i);
+            T go = gameObjects.get(i);
             if(go.getName().equals(name))
                 return go;
         }
@@ -63,20 +63,20 @@ public class ArrayListContainer implements Container {
     }
 
     @Override
-    public GameObject get(Class c) {
+    public T get(Class c) {
         for(int i = 0;i < gameObjects.size();i++){
-            GameObject go = gameObjects.get(i);
-            if(GameObject.class.isInstance(go))
+            T go = gameObjects.get(i);
+            if(c.isInstance(go))
                 return go;
         }
         return null;
     }
 
     @Override
-    public Container<GameObject> getAll(String name) {
-        Container<GameObject> result = new ArrayListContainer(); //Много лишнего убрать
+    public Container<T> getAll(String name) {
+        Container<T> result = new ArrayListContainer(); //Много лишнего убрать
         for(int i = 0;i < gameObjects.size();i++){
-            GameObject go = gameObjects.get(i);
+            T go = gameObjects.get(i);
             if(go.getName().equals(name))
                 result.add(go);
         }
@@ -84,11 +84,11 @@ public class ArrayListContainer implements Container {
     }
 
     @Override
-    public Container<GameObject> getAll(Class c) {
-        Container<GameObject> result = new ArrayListContainer();
+    public Container<T> getAll(Class c) {
+        Container<T> result = new ArrayListContainer();
         for(int i = 0;i < gameObjects.size();i++){
-            GameObject go = gameObjects.get(i);
-            if(GameObject.class.isInstance(go)) {//Неправильно работает или правио?
+            T go = gameObjects.get(i);
+            if(c.isInstance(go)) {//Неправильно работает или правио?
                 result.add(go);
             }
         }

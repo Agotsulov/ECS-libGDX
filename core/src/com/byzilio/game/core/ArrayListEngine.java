@@ -25,7 +25,7 @@ public class ArrayListEngine extends Engine{
     @Override
     public void changeScene(Scene scene) {
         this.scene = scene;
-        this.scene.create(this, null);
+        this.scene.create(this);
         for(int i = 0;i < size();i++){
             get(i).start();
         }
@@ -82,13 +82,13 @@ public class ArrayListEngine extends Engine{
     @Override
     public void add(System system) {
         systems.add(system);
-        system.create(this, null);
+        system.create(this);
     }
 
     @Override
     public void add(int i, System system) {
         systems.add(i,system);
-        system.create(this, null);
+        system.create(this);
     }
 
     @Override
@@ -124,24 +124,22 @@ public class ArrayListEngine extends Engine{
     }
 
     @Override
-    public GameObject get(String name) {
+    public System get(String name) {
         return null;
     }
 
     @Override
-    public GameObject get(Class c) {
+    public System get(Class c) {
         return null;
     }
 
     @Override
-    public Container<GameObject> getAll(String name) {
+    public Container<System> getAll(String name) {
         return null;
     }
 
     @Override
-    public Container<GameObject> getAll(Class c) {
+    public Container<System> getAll(Class c) {
         return null;
     }
-
-
 }

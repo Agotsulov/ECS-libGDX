@@ -1,5 +1,6 @@
 package com.byzilio.game.systems;
 
+import com.byzilio.engine.Component;
 import com.byzilio.engine.Entity;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
@@ -43,7 +44,7 @@ public class ScriptSystem extends System {
         }
         if (gameObject instanceof Entity) {
             Entity e = (Entity) gameObject;
-            Container<GameObject> gameObjects = e.getAll(Script.class);
+            Container<Component> gameObjects = e.getAll(Script.class);
             for(int j = 0; j < gameObjects.size();j++)
                 if(gameObjects.get(j) instanceof Script) //Узнать что за тип переменных в instansceof
                     scripts.add((Script) gameObjects.get(j));
@@ -58,7 +59,7 @@ public class ScriptSystem extends System {
         }
         if (gameObject instanceof Entity) {
             Entity e = (Entity) gameObject;
-            Container<GameObject> gameObjects = e.getAll(Script.class);
+            Container<Component> gameObjects = e.getAll(Script.class);
             for(int j = 0; j < gameObjects.size();j++)
                 if(gameObjects.get(j) instanceof Script) //Узнать что за тип переменных в instansceof
                     scripts.add(i, (Script) gameObjects.get(j));
