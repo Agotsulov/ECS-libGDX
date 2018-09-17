@@ -1,7 +1,6 @@
 package com.byzilio.game.systems;
 
 import com.badlogic.gdx.Gdx;
-import com.byzilio.engine.Engine;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
 import com.byzilio.engine.core.Input;

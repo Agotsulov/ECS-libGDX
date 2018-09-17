@@ -6,6 +6,10 @@ import com.byzilio.engine.core.IGameObject;
 
 public abstract class GameObject implements IGameObject, Debugable {
 
+    /*
+        TODO: isAlive добавить.
+     */
+
     protected String name = "GameObject";
 
     protected Engine engine = null;

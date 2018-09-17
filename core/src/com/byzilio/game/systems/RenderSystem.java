@@ -17,6 +17,8 @@ public class RenderSystem extends System{
 
     /*
         TODO: Придумать как сделать чтобы эта система не зависила от SpriteBatch.
+        TODO: Отрисовку по слоям.
+        TODO: Камеру.
      */
 
     private class DrawObject{

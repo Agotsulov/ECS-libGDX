@@ -5,14 +5,17 @@ import com.byzilio.engine.Entity;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
 import com.byzilio.game.components.Position;
-import com.byzilio.game.components.Rendeable;
 import com.byzilio.game.components.Rigidbody;
-import com.byzilio.game.other.Pair;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MoveSystem extends System {
+
+    /*
+        TODO: Столкновения.
+        TODO: Учитывать гравитацию.
+     */
 
     private class MoveObject{
         Rigidbody rb = null;

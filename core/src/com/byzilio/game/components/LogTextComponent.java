@@ -6,7 +6,6 @@ public class LogTextComponent extends Component {
 
     private String text = "TEST";
 
-
     public LogTextComponent(String text) {
         this.text = text;
         setName("LogTextComponent");

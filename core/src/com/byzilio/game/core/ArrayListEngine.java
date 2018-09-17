@@ -1,18 +1,19 @@
 package com.byzilio.game.core;
 
-import com.badlogic.gdx.Gdx;
+import com.byzilio.engine.Engine;
+import com.byzilio.engine.Scene;
+import com.byzilio.engine.System;
+import com.byzilio.engine.core.Container;
+import com.byzilio.engine.core.Input;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.byzilio.engine.Scene;
-import com.byzilio.engine.core.Container;
-import com.byzilio.engine.GameObject;
-import com.byzilio.engine.System;
-import com.byzilio.engine.Engine;
-import com.byzilio.engine.core.Input;
-
 public class ArrayListEngine extends Engine{
+
+    /*
+        TODO: Дописать get'ы.
+     */
 
     private List<System> systems = new ArrayList<System>();
     private Scene scene;
@@ -121,6 +122,11 @@ public class ArrayListEngine extends Engine{
     @Override
     public boolean remove(Object o) {
         return systems.remove(o);
+    }
+
+    @Override
+    public Scene getScene() {
+        return scene;
     }
 
     @Override

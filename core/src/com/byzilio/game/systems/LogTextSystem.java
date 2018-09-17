@@ -1,10 +1,10 @@
 package com.byzilio.game.systems;
 
 import com.byzilio.engine.Component;
-import com.byzilio.engine.core.Container;
 import com.byzilio.engine.Entity;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
+import com.byzilio.engine.core.Container;
 import com.byzilio.game.components.LogTextComponent;
 
 import java.util.ArrayList;
