@@ -13,6 +13,9 @@ import java.util.List;
 
 public class RenderSystem extends System{
 
+    /*
+        TODO: Придумать как сделать чтобы эта система не зависила от SpriteBatch.
+     */
 
     private class DrawObject{
         List<Rendeable> rendeables = null;
@@ -148,6 +151,5 @@ public class RenderSystem extends System{
     @Override
     public void dispose() {
         batch.dispose();
-
     }
 }

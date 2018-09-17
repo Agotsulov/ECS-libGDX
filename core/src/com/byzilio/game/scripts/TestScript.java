@@ -6,6 +6,7 @@ public class TestScript extends Script {
 
     public TestScript() {
         setName("TestScript");
+        setDebug(false);
     }
 
     @Override

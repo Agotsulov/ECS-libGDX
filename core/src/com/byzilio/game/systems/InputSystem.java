@@ -13,7 +13,12 @@ public class InputSystem extends System {
 
     public InputSystem() {
         setName("InputSystem");
+        setDebug(false);
     }
+
+    /*
+        TODO: Подумать и добавить сюда нажатие кнопок(вызова onClick в Script) и т.п.
+     */
 
     @Override
     public void create(Engine engine, GameObject gameObject) {
