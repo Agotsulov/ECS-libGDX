@@ -1,11 +1,9 @@
 package com.byzilio.game.systems;
 
-import com.badlogic.gdx.Screen;
 import com.byzilio.engine.Entity;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
 import com.byzilio.engine.core.Container;
-import com.byzilio.engine.core.Engine;
 import com.byzilio.game.components.Script;
 
 import java.util.ArrayList;

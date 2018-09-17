@@ -15,6 +15,7 @@ public class LogTextSystem extends System{
 
     public LogTextSystem() {
         setName("LogTextSystem");
+        setDebug(false);
     }
 
     @Override

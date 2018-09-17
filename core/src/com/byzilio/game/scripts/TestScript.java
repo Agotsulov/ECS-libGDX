@@ -20,7 +20,14 @@ public class TestScript extends Script {
 
     @Override
     public void update() {
+        if(engine.input.keyDown("W"))
+            log("AAAAAAAAAAAAAAAAAAAAAAAAAAA KeyDown W");
+        if(engine.input.keyUp("W"))
+            log("AAAAAAAAAAAAAAAAAAAAAAAAAAA KeyUp W");
+        log("KEY W:" + engine.input.getKey("W"));
         log("update");
+        log("KEYDOWN W : " + engine.input.keyDown("W"));
+        log("KEYUP W : " + engine.input.keyUp("W"));
     }
 
     @Override

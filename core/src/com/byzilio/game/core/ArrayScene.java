@@ -1,6 +1,6 @@
 package com.byzilio.game.core;
 
-import com.byzilio.engine.core.Engine;
+import com.byzilio.engine.Engine;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.Scene;
 import com.byzilio.engine.core.Container;
@@ -17,23 +17,35 @@ public class ArrayScene extends Scene {
     @Override
     public void create(Engine engine, GameObject gameObject) {
         super.create(engine, gameObject);
-        for(int i = 0;i < engine.size();i++){
-            for(int j = 0;j < gameObjects.size();j++){
+        refreshSystems();
+        refreshGameObjects();
+    }
+
+    private void refreshSystems(){
+        for(int i = 0;i < engine.size();i++)
+            for(int j = 0;j < gameObjects.size();j++)
                 engine.get(i).add(gameObjects.get(j));
-            }
-        }
+    }
+
+    private void refreshGameObjects(){
+        for(int j = 0;j < gameObjects.size();j++)
+            gameObjects.get(j).create(engine, this);
     }
 
     @Override
     public void add(GameObject gameObject) {
         gameObjects.add(gameObject);
         gameObject.create(engine,null);
+        for(int i = 0;i < engine.size();i++)
+            engine.get(i).add(gameObject);
     }
 
     @Override
     public void add(int i, GameObject gameObject) {
         gameObjects.add(i, gameObject);
         gameObject.create(engine,null);
+        for(int j = 0;j < engine.size();j++)
+            engine.get(j).add(gameObject);
     }
 
     @Override

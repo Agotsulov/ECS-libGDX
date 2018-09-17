@@ -1,7 +1,7 @@
 package com.byzilio.game.systems;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.byzilio.engine.core.Engine;
+import com.byzilio.engine.Engine;
 import com.byzilio.engine.Entity;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
@@ -37,6 +37,7 @@ public class RenderSystem extends System{
 
     public RenderSystem() {
         setName("RenderSystem");
+        setDebug(false);
     }
 
     @Override

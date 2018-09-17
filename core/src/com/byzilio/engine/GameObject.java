@@ -2,7 +2,6 @@ package com.byzilio.engine;
 
 import com.badlogic.gdx.Gdx;
 import com.byzilio.engine.core.Debugable;
-import com.byzilio.engine.core.Engine;
 import com.byzilio.engine.core.IGameObject;
 
 public abstract class GameObject implements IGameObject, Debugable {
@@ -17,6 +16,22 @@ public abstract class GameObject implements IGameObject, Debugable {
 
     public void create(Engine engine, GameObject gameObject) {
         this.engine = engine;
+        this.gameObject = gameObject;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public GameObject getGameObject() {
+        return gameObject;
+    }
+
+    public void setGameObject(GameObject gameObject) {
         this.gameObject = gameObject;
     }
 

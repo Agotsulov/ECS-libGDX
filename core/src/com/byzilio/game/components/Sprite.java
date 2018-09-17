@@ -18,6 +18,7 @@ public class Sprite extends Rendeable {
         this.texture = texture;
         this.w = w;
         this.h = h;
+        setDebug(false);
     }
 
     public void setTexture(Texture texture) {

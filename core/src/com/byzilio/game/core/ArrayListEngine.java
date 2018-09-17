@@ -9,14 +9,17 @@ import com.byzilio.engine.Scene;
 import com.byzilio.engine.core.Container;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
-import com.byzilio.engine.core.Engine;
-import com.byzilio.game.systems.LogTextSystem;
-import com.byzilio.game.systems.RenderSystem;
+import com.byzilio.engine.Engine;
+import com.byzilio.engine.core.Input;
 
-public class ArrayListEngine implements Engine {
+public class ArrayListEngine extends Engine{
 
     private List<System> systems = new ArrayList<System>();
     private Scene scene;
+
+    public ArrayListEngine(Input input) {
+        super(input);
+    }
 
 
     @Override
@@ -35,7 +38,7 @@ public class ArrayListEngine implements Engine {
 
     @Override
     public void render(float delta) {
-        Gdx.app.log("Engine","update");
+        //Gdx.app.log("Engine","update");
 
         for (int i = 0;i < systems.size();i++){
             systems.get(i).preUpdate();
