@@ -73,7 +73,7 @@ public class ArrayListContainer<T extends GameObject> implements Container<T> {
 
     @Override
     public Container<T> getAll(String name) {
-        Container<T> result = new ArrayListContainer(); //Много лишнего убрать
+        Container<T> result = new ArrayListContainer<T>(); //Много лишнего убрать
         for(int i = 0;i < gameObjects.size();i++){
             T go = gameObjects.get(i);
             if(go.getName().equals(name))
@@ -84,7 +84,7 @@ public class ArrayListContainer<T extends GameObject> implements Container<T> {
 
     @Override
     public Container<T> getAll(Class c) {
-        Container<T> result = new ArrayListContainer();
+        Container<T> result = new ArrayListContainer<T>();
         for(int i = 0;i < gameObjects.size();i++){
             T go = gameObjects.get(i);
             if(c.isInstance(go)) {//Неправильно работает или правио?

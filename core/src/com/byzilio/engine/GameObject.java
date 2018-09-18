@@ -5,11 +5,7 @@ import com.byzilio.engine.core.Debugable;
 import com.byzilio.engine.core.IGameObject;
 
 public abstract class GameObject implements IGameObject, Debugable {
-
-    /*
-        TODO: isAlive добавить.
-     */
-
+    
     protected String name = "GameObject";
 
     protected Engine engine = null;
@@ -27,7 +23,7 @@ public abstract class GameObject implements IGameObject, Debugable {
     public void setEngine(Engine engine) {
         this.engine = engine;
     }
-    
+
     public String getName() {
         return name;
     }
