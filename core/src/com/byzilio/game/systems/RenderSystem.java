@@ -8,7 +8,7 @@ import com.byzilio.engine.Entity;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
 import com.byzilio.game.components.Position;
-import com.byzilio.game.components.Renderable;
+import com.byzilio.game.components.core.Renderable;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -12,7 +12,7 @@ import java.util.List;
 public class ArrayListEngine extends Engine{
 
     /*
-        TODO: Дописать get'ы.
+        TODO: Дописать get'ы. Хоть они и бесполезны
      */
 
     private List<System> systems = new ArrayList<System>();

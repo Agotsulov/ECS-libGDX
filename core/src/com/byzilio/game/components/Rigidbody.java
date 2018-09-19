@@ -4,7 +4,8 @@ import com.byzilio.engine.Component;
 
 public class Rigidbody extends Component {
 
-    // TODO:Переписать на векторах.
+    // TODO: Переписать на векторах.
+    // TODO: Вес.
 
     private float ax = 0;
     private float ay = 0;

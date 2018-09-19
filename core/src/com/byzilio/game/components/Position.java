@@ -5,7 +5,7 @@ import com.byzilio.engine.Component;
 public class Position extends Component{
 
     //TODO: И вообще на векторах сделать бы.
-    //TODO: Scale и поворот?
+    //TODO: Scale и поворот.
 
     private float x;
     private float y;

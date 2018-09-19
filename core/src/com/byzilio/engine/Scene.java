@@ -3,5 +3,5 @@ package com.byzilio.engine;
 import com.byzilio.engine.core.Container;
 
 public abstract class Scene extends GameObject implements Container<Component>{
-    // TODO: Может сцены содержат GameObject.
+    // TODO: Сцены содержат GameObject.
 }

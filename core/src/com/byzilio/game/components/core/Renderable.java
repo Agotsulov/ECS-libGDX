@@ -1,4 +1,4 @@
-package com.byzilio.game.components;
+package com.byzilio.game.components.core;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.byzilio.engine.Component;

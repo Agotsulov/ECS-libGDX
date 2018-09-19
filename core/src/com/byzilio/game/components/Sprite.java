@@ -2,6 +2,7 @@ package com.byzilio.game.components;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.byzilio.game.components.core.Renderable;
 
 public class Sprite extends Renderable {
 

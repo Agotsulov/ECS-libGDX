@@ -14,22 +14,21 @@ public class InputAdapter implements InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
-        Gdx.app.log("KKKKKKKKKKKKKKKKKKKK", keycode + "");
         input.setKeyDown(String.valueOf(keycode));
         return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        Gdx.app.log("KKKKKKKKKKKKKKKKKKKK", keycode + "");
         input.setKeyUp(String.valueOf(keycode));
         return true;
     }
 
     @Override
     public boolean keyTyped(char character) {
-        Gdx.app.log("KKKKKKKKKKKKKKKKKKKK", character + "");
-        input.setKey(String.valueOf(character), 10);
+        input.setKey(String.valueOf(character), 2
+
+        );
         return true;
     }
 

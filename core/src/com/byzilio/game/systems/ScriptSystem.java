@@ -5,7 +5,7 @@ import com.byzilio.engine.Entity;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
 import com.byzilio.engine.core.Container;
-import com.byzilio.game.components.Script;
+import com.byzilio.game.components.core.Script;
 
 import java.util.ArrayList;
 import java.util.List;

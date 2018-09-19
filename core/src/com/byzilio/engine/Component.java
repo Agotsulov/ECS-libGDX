@@ -9,7 +9,7 @@ public abstract class Component extends GameObject{
 
     /*
         Это не очень хорошо.
-        TODO:Придумать как запихать Entity получше.
+        TODO: Придумать как запихать Entity получше.
         Хотя я все больше склоняюсь к написанию ECS через один класс GameObject,
      */
 

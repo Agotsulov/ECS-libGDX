@@ -1,6 +1,7 @@
 package com.byzilio.game.scripts;
 
-import com.byzilio.game.components.Script;
+import com.byzilio.engine.Entity;
+import com.byzilio.game.components.core.Script;
 
 public class TestScript extends Script {
 
@@ -21,6 +22,7 @@ public class TestScript extends Script {
 
     @Override
     public void update() {
+        /*
         if(engine.input.keyDown("W"))
             log("AAAAAAAAAAAAAAAAAAAAAAAAAAA KeyDown W");
         if(engine.input.keyUp("W"))
@@ -29,11 +31,17 @@ public class TestScript extends Script {
         log("update");
         log("KEYDOWN W : " + engine.input.keyDown("W"));
         log("KEYUP W : " + engine.input.keyUp("W"));
+        */
     }
 
     @Override
     public void postUpdate() {
         //log("postUpdate");
+    }
+
+    @Override
+    public void onCollision(Entity other) {
+        log("onCollide : " + other.getName());
     }
 
     @Override

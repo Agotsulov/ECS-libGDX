@@ -1,32 +1,28 @@
 package com.byzilio.game.other;
 
-public class Pair<T,E> {
+public class Pair<F, S> {
 
-    //Почему то у меня нет этого класса по умолчанию
+    private F first;
+    private S second;
 
-    private T first;
-    private E second;
-
-    public Pair(T first, E second) {
+    public Pair(F first, S second) {
         this.first = first;
         this.second = second;
     }
 
-    public T getFirst() {
+    public F getFirst() {
         return first;
     }
 
-    public void setFirst(T first) {
+    public void setFirst(F first) {
         this.first = first;
     }
 
-    public E getSecond() {
+    public S getSecond() {
         return second;
     }
 
-    public void setSecond(E second) {
+    public void setSecond(S second) {
         this.second = second;
     }
-
-
 }
