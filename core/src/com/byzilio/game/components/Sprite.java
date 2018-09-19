@@ -20,11 +20,46 @@ public class Sprite extends Renderable {
         this.texture = texture;
         this.w = w;
         this.h = h;
+        offsetX = 0;
+        offsetY = 0;
         setDebug(false);
+    }
+
+    public Sprite(int layer, Texture texture, float w, float h, float offsetX, float offsetY) {
+        super(layer);
+        this.texture = texture;
+        this.w = w;
+        this.h = h;
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
+    }
+
+    public Sprite(int layer,String texture, float w, float h) {
+        super(layer);
+        setName("Sprite");
+        this.texture = new Texture(texture);
+        this.w = w;
+        this.h = h;
+        offsetX = 0;
+        offsetY = 0;
+        setDebug(false);
+    }
+
+    public Sprite(int layer, String texture, float w, float h, float offsetX, float offsetY) {
+        super(layer);
+        this.texture = new Texture(texture);
+        this.w = w;
+        this.h = h;
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
     }
 
     public void setTexture(Texture texture) {
         this.texture = texture;
+    }
+
+    public Texture getTexture() {
+        return texture;
     }
 
     public float getW() {
@@ -43,11 +78,26 @@ public class Sprite extends Renderable {
         this.h = h;
     }
 
+    public float getOffsetX() {
+        return offsetX;
+    }
+
+    public void setOffsetX(float offsetX) {
+        this.offsetX = offsetX;
+    }
+
+    public float getOffsetY() {
+        return offsetY;
+    }
+
+    public void setOffsetY(float offsetY) {
+        this.offsetY = offsetY;
+    }
+
     @Override
     public void draw(float x, float y, float scale, SpriteBatch batch) {
         log("DRAW " + x + " " + y + " " + scale + " " + batch);
-        batch.draw(texture, x, y, w * scale,  h * scale);
-        //batch.draw(new Texture("badlogic.jpg"), 0, 0);
+        batch.draw(texture, x + offsetX, y + offsetY, w * scale,  h * scale);
     }
 
     @Override

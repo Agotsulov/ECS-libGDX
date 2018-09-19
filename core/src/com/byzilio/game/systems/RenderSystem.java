@@ -3,10 +3,12 @@ package com.byzilio.game.systems;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.byzilio.engine.Component;
 import com.byzilio.engine.Engine;
 import com.byzilio.engine.Entity;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
+import com.byzilio.engine.core.Container;
 import com.byzilio.game.components.Position;
 import com.byzilio.game.components.core.Renderable;
 
@@ -84,15 +86,21 @@ public class RenderSystem extends System{
         if (gameObject instanceof Entity) {
             Entity e = (Entity) gameObject;
 
-            DrawObject drawObject = new DrawObject();
+            Position position = (Position) e.get(Position.class);
 
-            drawObject.position = (Position) e.get(Position.class);
-            drawObject.renderable = (Renderable) e.get(Renderable.class);
+            Container<Component> gameObjects = e.getAll(Renderable.class);
+            for(int j = 0; j < gameObjects.size();j++)
+                if(gameObjects.get(j) instanceof Renderable){
+                    DrawObject drawObject = new DrawObject();
 
-            if(!drawObject.isNull()){
-                drawObjects.add(drawObject);
-                Collections.sort(drawObjects); //Долго но пойдет
-            }
+                    drawObject.position = position;
+                    drawObject.renderable = (Renderable) gameObjects.get(j);
+
+                    if(!drawObject.isNull()){
+                        drawObjects.add(drawObject);
+                        Collections.sort(drawObjects); //Долго ,но пойдет
+                    }
+                }
         }
     }
 
@@ -101,15 +109,21 @@ public class RenderSystem extends System{
         if (gameObject instanceof Entity) {
             Entity e = (Entity) gameObject;
 
-            DrawObject drawObject = new DrawObject();
+            Position position = (Position) e.get(Position.class);
 
-            drawObject.position = (Position) e.get(Position.class);
-            drawObject.renderable = (Renderable) e.get(Renderable.class);
+            Container<Component> gameObjects = e.getAll(Renderable.class);
+            for(int j = 0; j < gameObjects.size();j++)
+                if(gameObjects.get(j) instanceof Renderable){
+                    DrawObject drawObject = new DrawObject();
 
-            if(!drawObject.isNull()){
-                drawObjects.add(i, drawObject);
-                Collections.sort(drawObjects);
-            }
+                    drawObject.position = position;
+                    drawObject.renderable = (Renderable) gameObjects.get(j);
+
+                    if(!drawObject.isNull()){
+                        drawObjects.add(i, drawObject);
+                        Collections.sort(drawObjects); //Долго ,но пойдет
+                    }
+                }
         }
     }
 
