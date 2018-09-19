@@ -27,11 +27,13 @@ public class Sprite extends Renderable {
 
     public Sprite(int layer, Texture texture, float w, float h, float offsetX, float offsetY) {
         super(layer);
+        setName("Sprite");
         this.texture = texture;
         this.w = w;
         this.h = h;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
+        setDebug(false);
     }
 
     public Sprite(int layer,String texture, float w, float h) {
@@ -47,11 +49,13 @@ public class Sprite extends Renderable {
 
     public Sprite(int layer, String texture, float w, float h, float offsetX, float offsetY) {
         super(layer);
+        setName("Sprite");
         this.texture = new Texture(texture);
         this.w = w;
         this.h = h;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
+        setDebug(false);
     }
 
     public void setTexture(Texture texture) {

@@ -40,7 +40,12 @@ public class TestScript extends Script {
         log("KEYUP W : " + engine.input.keyUp("W"));
         */
 
-        log(rb.getAx() + " " + rb.getAy() + " " + rb.getUx() + " " + rb.getUy());
+        log("ax = "
+                + rb.getAx() + " ay = "
+                + rb.getAy() + " ux = "
+                + rb.getUx() + " uy = "
+                + rb.getUy());
+
         if(rb != null) {
             if (engine.input.keyDown("W")) {
                 rb.setAy(1);
@@ -61,7 +66,8 @@ public class TestScript extends Script {
         }
 
         log("touchX_0 = " + engine.input.getKey("touchX_0") +
-                " touchY_0 = " + engine.input.getKey("touchY_0"));
+                " touchY_0 = " + engine.input.getKey("touchY_0") +
+                " touchButton_0 = " + engine.input.getKey("touchButton_0"));
 
     }
 

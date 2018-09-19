@@ -32,7 +32,7 @@ public class HashMapInput implements Input {
         if(keys.get(keycode) != null )
             return keys.get(keycode);
         else
-            return 0;
+            return -1;
     }
 
     @Override

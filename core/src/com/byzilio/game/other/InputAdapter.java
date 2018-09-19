@@ -9,6 +9,8 @@ public class InputAdapter implements InputProcessor {
     private Input input;
 
     //Это не работет 60 раз в секунду.
+    //TODO: Правила записи в input хранить в конфиге.
+
 
     public InputAdapter(Input input) {
         this.input = input;
@@ -36,6 +38,8 @@ public class InputAdapter implements InputProcessor {
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         input.setKey("touchX_" + pointer, screenX);
         input.setKey("touchY_" + pointer, screenY);
+        input.setKey("touchButton_" + pointer, button);
+
         return false;
     }
 
@@ -43,6 +47,7 @@ public class InputAdapter implements InputProcessor {
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
         input.setKey("touchX_" + pointer, -1);
         input.setKey("touchY_" + pointer, -1);
+        input.setKey("touchButton_" + pointer, -1);
         return true;
     }
 
