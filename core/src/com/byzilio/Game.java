@@ -18,10 +18,15 @@ import com.byzilio.game.systems.LogTextSystem;
 import com.byzilio.game.systems.MoveSystem;
 import com.byzilio.game.systems.RenderSystem;
 import com.byzilio.game.systems.ScriptSystem;
+import com.byzilio.game.systems.TimeSystem;
 
 public class Game extends com.badlogic.gdx.Game {//Ну не умею я называть правильно классы
 
 	/*
+		Ах да. Тестов тут нет.
+		Так как не просто сюда их вставить и по сути в игре нечего тестировать.
+		Если нужно показать как я пишу тесты могу скинуть другой проект
+
 		Весь проект это написание движка и в последующем игры на шаблоне Entity-Component-System с помощью libGDX.
 		Главная задача отказаться от приведений типов в игровом цикле,
 		так как силшком долго в Java.
@@ -47,6 +52,8 @@ public class Game extends com.badlogic.gdx.Game {//Ну не умею я наз�
 	@Override
 	public void create () {
 		engine = new ArrayListEngine(new HashMapInput());
+
+		engine.add(new TimeSystem());
 		engine.add(new InputSystem());
         engine.add(new MoveSystem());
         engine.add(new ScriptSystem());

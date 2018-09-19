@@ -118,6 +118,11 @@ public class ArrayListEngine extends Engine{
     }
 
     @Override
+    public float getDeltaTime() {
+        return Gdx.graphics.getDeltaTime();
+    }
+
+    @Override
     public boolean isEmpty() {
         return systems.isEmpty();
     }

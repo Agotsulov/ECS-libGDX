@@ -3,10 +3,12 @@ package com.byzilio.game.scripts;
 import com.byzilio.engine.Entity;
 import com.byzilio.game.components.Rigidbody;
 import com.byzilio.game.components.core.Script;
+import com.byzilio.game.components.core.Time;
 
 public class TestScript extends Script {
 
     private Rigidbody rb;
+    private Time globalTime;
 
     public TestScript() {
         setName("TestScript");
@@ -16,6 +18,7 @@ public class TestScript extends Script {
     @Override
     public void start() {
         rb = (Rigidbody) entity.get(Rigidbody.class);
+        globalTime = (Time) engine.getScene().get("Global Time");
         //log("start");
     }
 
@@ -49,10 +52,14 @@ public class TestScript extends Script {
                 rb.setAy(-1);
             }
             if (engine.input.keyDown("D")) {
-                log("ЧИВООООООООООООООООООООООООООООООООООООООООООООООООООООО");
                 rb.setAx(1);
             }
         }
+
+        if(globalTime != null){
+            log(globalTime.toString());
+        }
+
     }
 
     @Override

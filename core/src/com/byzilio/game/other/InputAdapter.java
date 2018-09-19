@@ -16,23 +16,19 @@ public class InputAdapter implements InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
-        Gdx.app.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIISnputAdapter: " ,"keyDown = " + com.badlogic.gdx.Input.Keys.toString(keycode));
         input.setKeyDown(com.badlogic.gdx.Input.Keys.toString(keycode));
         return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-
-        Gdx.app.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIISnputAdapter: " ,"keyUp = " + com.badlogic.gdx.Input.Keys.toString(keycode));
         input.setKeyUp(com.badlogic.gdx.Input.Keys.toString(keycode));
         return true;
     }
 
     @Override
     public boolean keyTyped(char character) {
-        Gdx.app.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIISnputAdapter: " ,"keyTyped = " + character);
-        input.setKey(String.valueOf(character), -2);
+        input.setKey(String.valueOf(Character.toUpperCase(character)), -2);
         return true;
     }
 
