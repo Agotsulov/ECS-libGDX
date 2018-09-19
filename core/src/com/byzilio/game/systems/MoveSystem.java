@@ -22,7 +22,7 @@ public class MoveSystem extends System {
         Position position = null;
 
         public boolean isNull(){
-            return (rb == null) && (position == null);
+            return (rb == null) || (position == null);
         }
     }
 

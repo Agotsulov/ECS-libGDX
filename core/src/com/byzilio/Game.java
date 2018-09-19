@@ -71,12 +71,19 @@ public class Game extends com.badlogic.gdx.Game {//Ну не умею я наз�
 
 		e.add(new Position(0, 30));
 		e.add(new TestScript());
-		e.add(new Sprite(new Texture("badlogic.jpg"), 100, 150));
+		e.add(new Sprite(1, new Texture("badlogic.jpg"), 100, 150));
         e.add(new Rigidbody(2,1,1.5f,1,2,2,0,0,0));
 		scene.add(e);
+
+
 		setScreen(engine);
 
+		e = new ArrayListEntity();
+		e.add(new Position(100, 100));
+		e.add(new TestScript());
+		e.add(new Sprite(0, new Texture("test1.png"), 200, 200));
 
+		engine.getScene().add(e);
 	}
 
 	@Override

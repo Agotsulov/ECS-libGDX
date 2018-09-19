@@ -8,31 +8,31 @@ import com.byzilio.engine.Entity;
 import com.byzilio.engine.GameObject;
 import com.byzilio.engine.System;
 import com.byzilio.game.components.Position;
-import com.byzilio.game.components.Rendeable;
+import com.byzilio.game.components.Renderable;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class RenderSystem extends System{
 
     /*
         TODO: Придумать как сделать чтобы эта система не зависила от SpriteBatch.
-        TODO: Отрисовку по слоям.
         TODO: Камеру.
      */
 
-    private class DrawObject{
-        List<Rendeable> rendeables = null;
+    private class DrawObject implements Comparable<DrawObject>{
+        Renderable renderable = null;
         Position position = null;
 
-        public DrawObject() {
-            rendeables = new ArrayList<Rendeable>();
-        }
-
         public boolean isNull(){
-            return (rendeables.size() > 0) && (position == null);
+            return (renderable == null) || (position == null);
         }
 
+        @Override
+        public int compareTo(DrawObject drawObject) {
+            return renderable.getLayer() - drawObject.renderable.getLayer();
+        }
     }
 
     private float scale = 1.0f;
@@ -41,10 +41,10 @@ public class RenderSystem extends System{
 
     private SpriteBatch batch;
 
-
     public RenderSystem() {
         setName("RenderSystem");
         setDebug(false);
+        setScale(1.0f);
     }
 
     @Override
@@ -67,10 +67,8 @@ public class RenderSystem extends System{
         batch.begin();
         for(int i = 0; i < drawObjects.size(); i++){
             DrawObject current = drawObjects.get(i);
-            for(int j = 0; j < current.rendeables.size(); j++){
-                Rendeable rendeable = current.rendeables.get(j);
-                rendeable.draw(current.position.getX(), current.position.getY(), scale, batch);
-            }
+            current.renderable.draw(current.position.getX(), current.position.getY(), scale, batch);
+            //Кстати лучше так или java умная и не будет на каждый drawObjects.get(i) доствать?
         }
         batch.flush();
     }
@@ -85,21 +83,15 @@ public class RenderSystem extends System{
     public void add(GameObject gameObject) {
         if (gameObject instanceof Entity) {
             Entity e = (Entity) gameObject;
+
             DrawObject drawObject = new DrawObject();
 
-            drawObject.position = (Position) e.get("Position");
-
-            if(drawObject.position == null)
-                return;
-
-            for (int i = 0; i < e.size(); i++){
-                GameObject go = e.get(i);
-                if(go instanceof Rendeable)
-                    drawObject.rendeables.add((Rendeable) go);
-            }
+            drawObject.position = (Position) e.get(Position.class);
+            drawObject.renderable = (Renderable) e.get(Renderable.class);
 
             if(!drawObject.isNull()){
                 drawObjects.add(drawObject);
+                Collections.sort(drawObjects); //Долго но пойдет
             }
         }
     }
@@ -108,21 +100,20 @@ public class RenderSystem extends System{
     public void add(int i, GameObject gameObject) {
         if (gameObject instanceof Entity) {
             Entity e = (Entity) gameObject;
+
             DrawObject drawObject = new DrawObject();
 
-            drawObject.position = (Position) e.get("Position");
-
-            for (int j = 0;j < e.size(); j++){
-                GameObject go = e.get(i);
-                if(go instanceof Rendeable)
-                    drawObject.rendeables.add((Rendeable) go);
-            }
+            drawObject.position = (Position) e.get(Position.class);
+            drawObject.renderable = (Renderable) e.get(Renderable.class);
 
             if(!drawObject.isNull()){
                 drawObjects.add(i, drawObject);
+                Collections.sort(drawObjects);
             }
         }
     }
+
+
 
     @Override
     public int size() {
@@ -151,6 +142,13 @@ public class RenderSystem extends System{
         return drawObjects.remove(o);
     }
 
+    public float getScale() {
+        return scale;
+    }
+
+    public void setScale(float scale) {
+        this.scale = scale;
+    }
 
     @Override
     public void dispose() {

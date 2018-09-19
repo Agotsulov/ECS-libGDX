@@ -3,7 +3,7 @@ package com.byzilio.game.components;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
-public class Sprite extends Rendeable {
+public class Sprite extends Renderable {
 
     private Texture texture;
 
@@ -13,7 +13,8 @@ public class Sprite extends Rendeable {
     private float offsetX;
     private float offsetY;
 
-    public Sprite(Texture texture, float w, float h) {
+    public Sprite(int layer,Texture texture, float w, float h) {
+        super(layer);
         setName("Sprite");
         this.texture = texture;
         this.w = w;
