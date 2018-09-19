@@ -8,38 +8,46 @@ public class InputAdapter implements InputProcessor {
 
     private Input input;
 
+    //Это не работет 60 раз в секунду.
+
     public InputAdapter(Input input) {
         this.input = input;
     }
 
     @Override
     public boolean keyDown(int keycode) {
-        input.setKeyDown(String.valueOf(keycode));
+        Gdx.app.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIISnputAdapter: " ,"keyDown = " + com.badlogic.gdx.Input.Keys.toString(keycode));
+        input.setKeyDown(com.badlogic.gdx.Input.Keys.toString(keycode));
         return true;
     }
 
     @Override
     public boolean keyUp(int keycode) {
-        input.setKeyUp(String.valueOf(keycode));
+
+        Gdx.app.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIISnputAdapter: " ,"keyUp = " + com.badlogic.gdx.Input.Keys.toString(keycode));
+        input.setKeyUp(com.badlogic.gdx.Input.Keys.toString(keycode));
         return true;
     }
 
     @Override
     public boolean keyTyped(char character) {
-        input.setKey(String.valueOf(character), 2
-
-        );
+        Gdx.app.log("IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIISnputAdapter: " ,"keyTyped = " + character);
+        input.setKey(String.valueOf(character), -2);
         return true;
     }
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        input.setKeyDown("touchDownX_" + pointer + "_" + button);
+        input.setKeyDown("touchDownY_" + pointer + "_" + button);
         return false;
     }
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        return false;
+        input.setKeyDown("touchUpX_" + pointer + "_" + button);
+        input.setKeyDown("touchUpY_" + pointer + "_" + button);
+        return true;
     }
 
     @Override
@@ -54,6 +62,7 @@ public class InputAdapter implements InputProcessor {
 
     @Override
     public boolean scrolled(int amount) {
-        return false;
+        input.setKey("Scrollec", amount);
+        return true;
     }
 }

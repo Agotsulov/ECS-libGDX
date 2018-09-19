@@ -19,6 +19,12 @@ public class ScriptSystem extends System {
     }
 
     @Override
+    public void start() {
+        for(int i = 0;i < scripts.size();i++)
+            scripts.get(i).start();
+    }
+
+    @Override
     public void preUpdate() {
         for(int i = 0;i < scripts.size();i++)
             scripts.get(i).preUpdate();

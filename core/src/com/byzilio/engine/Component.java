@@ -2,7 +2,7 @@ package com.byzilio.engine;
 
 public abstract class Component extends GameObject{
 
-    private Entity entity;
+    protected Entity entity;
 
     protected boolean alive = true;
 

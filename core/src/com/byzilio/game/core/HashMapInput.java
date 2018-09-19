@@ -4,8 +4,11 @@ import com.byzilio.engine.core.Input;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class HashMapInput implements Input {
+
+
 
     private Map<String, Integer> keys;
 
@@ -17,11 +20,12 @@ public class HashMapInput implements Input {
     @Override
     public void setKeyDown(String keycode) {
         keys.put(keycode, -1);
+
     }
 
     @Override
     public void setKeyUp(String keycode) {
-        keys.put(keycode, 1);
+        keys.put(keycode, 0);
     }
 
     @Override
@@ -49,6 +53,6 @@ public class HashMapInput implements Input {
 
     @Override
     public void reset() {
-        keys.clear();
+        //keys.clear();
     }
 }

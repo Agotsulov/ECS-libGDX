@@ -1,9 +1,12 @@
 package com.byzilio.game.scripts;
 
 import com.byzilio.engine.Entity;
+import com.byzilio.game.components.Rigidbody;
 import com.byzilio.game.components.core.Script;
 
 public class TestScript extends Script {
+
+    private Rigidbody rb;
 
     public TestScript() {
         setName("TestScript");
@@ -12,6 +15,7 @@ public class TestScript extends Script {
 
     @Override
     public void start() {
+        rb = (Rigidbody) entity.get(Rigidbody.class);
         //log("start");
     }
 
@@ -32,6 +36,23 @@ public class TestScript extends Script {
         log("KEYDOWN W : " + engine.input.keyDown("W"));
         log("KEYUP W : " + engine.input.keyUp("W"));
         */
+
+        log(rb.getAx() + " " + rb.getAy() + " " + rb.getUx() + " " + rb.getUy());
+        if(rb != null) {
+            if (engine.input.keyDown("W")) {
+                rb.setAy(1);
+            }
+            if (engine.input.keyDown("A")) {
+                rb.setAx(-1);
+            }
+            if (engine.input.keyDown("S")) {
+                rb.setAy(-1);
+            }
+            if (engine.input.keyDown("D")) {
+                log("ЧИВООООООООООООООООООООООООООООООООООООООООООООООООООООО");
+                rb.setAx(1);
+            }
+        }
     }
 
     @Override

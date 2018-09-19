@@ -64,43 +64,45 @@ public class MoveSystem extends System {
     }
 
     private void moveX(MoveObject curr){
-        if(curr.rb.getAx() != 0){
-            curr.rb.setUx(curr.rb.getUx() + curr.rb.getAx());
-        } else {
-            if ((curr.rb.getDrag() != 0) &&
-                    ((curr.rb.getUx() < curr.rb.getDrag())
-                            || (curr.rb.getUx() > -curr.rb.getDrag())))
+        curr.rb.setUx(curr.rb.getUx() + curr.rb.getAx());
+
+        if(curr.rb.getAx() == 0.0f){
+            if ((curr.rb.getDrag() !=  0.0f) && (Math.abs(curr.rb.getUx()) < curr.rb.getDrag())) {
                 curr.rb.setUx(0);
-            if (curr.rb.getUx() > 0)
+            } else if (curr.rb.getUx() > 0.0f){
                 curr.rb.setUx(curr.rb.getUx() - curr.rb.getDrag());
-            if (curr.rb.getUx() < 0)
+            } else if (curr.rb.getUx() < 0.0f) {
                 curr.rb.setUx(curr.rb.getUx() + curr.rb.getDrag());
+            }
         }
 
         if(curr.rb.getUx() > curr.rb.getMaxUx())
             curr.rb.setUx(curr.rb.getMaxUx());
+
+        if(curr.rb.getUx() < -curr.rb.getMaxUx())
+            curr.rb.setUx(-curr.rb.getMaxUx());
 
         curr.position.setX(curr.position.getX() + curr.rb.getUx());
 
     }
 
     private void moveY(MoveObject curr){
-        if(curr.rb.getAy() != 0){
-            curr.rb.setUy(curr.rb.getUy() + curr.rb.getAy());
-        } else {
-            if ((curr.rb.getDrag() != 0)
-                    && ((curr.rb.getUy() < curr.rb.getDrag())
-                    || (curr.rb.getUy() > -curr.rb.getDrag()))
-                    )
+        curr.rb.setUy(curr.rb.getUy() + curr.rb.getAy());
+        if(curr.rb.getAy() == 0.0f){
+            if ((curr.rb.getDrag() !=  0.0f) && (Math.abs(curr.rb.getUy()) < curr.rb.getDrag())) {
                 curr.rb.setUy(0);
-            if (curr.rb.getUy() > 0)
+            } else if (curr.rb.getUy() > 0.0f) {
                 curr.rb.setUy(curr.rb.getUy() - curr.rb.getDrag());
-            if (curr.rb.getUy() < 0)
+            } else if (curr.rb.getUy() < 0.0f) {
                 curr.rb.setUy(curr.rb.getUy() + curr.rb.getDrag());
+            }
         }
 
         if(curr.rb.getUy() > curr.rb.getMaxUy())
             curr.rb.setUy(curr.rb.getMaxUy());
+
+        if(curr.rb.getUy() < -curr.rb.getMaxUy())
+            curr.rb.setUy(-curr.rb.getMaxUy());
 
         curr.position.setY(curr.position.getY() + curr.rb.getUy());
 
@@ -117,8 +119,8 @@ public class MoveSystem extends System {
             Entity e = (Entity) gameObject;
             MoveObject moveObject = new MoveObject();
 
-            moveObject.position = (Position) e.get("Position");
-            moveObject.rb = (Rigidbody) e.get("Rigidbody");
+            moveObject.position = (Position) e.get(Position.class);
+            moveObject.rb = (Rigidbody) e.get(Rigidbody.class);
 
             if(!moveObject.isNull()){
                 moveObjects.add(moveObject);

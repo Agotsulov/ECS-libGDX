@@ -80,9 +80,10 @@ public class Game extends com.badlogic.gdx.Game {//Ну не умею я наз�
 
 
 		e.add(new Position(0, 30));
-		e.add(new TestScript());
 		e.add(new Sprite(1, new Texture("badlogic.jpg"), 100, 150));
-        e.add(new Rigidbody(2,1,1.5f,1,2,2,0,0,0));
+        //e.add(new Rigidbody(2,1,1.5f,1,2,2,0,0,0));
+		e.add(new Rigidbody(0,0,0,0,10,10,0,0.2f,0));
+		e.add(new TestScript());
 		e.add(new BoxCollider(false,100,150));
 		scene.add(e);
 
@@ -91,7 +92,6 @@ public class Game extends com.badlogic.gdx.Game {//Ну не умею я наз�
 
 		e = new ArrayListEntity();
 		e.add(new Position(100, 100));
-		e.add(new TestScript());
 		e.add(new Sprite(0, new Texture("test1.png"), 200, 200));
 		e.add(new BoxCollider(true,200,200));
 
