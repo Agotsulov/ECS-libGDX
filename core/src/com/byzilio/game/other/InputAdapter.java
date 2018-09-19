@@ -28,27 +28,29 @@ public class InputAdapter implements InputProcessor {
 
     @Override
     public boolean keyTyped(char character) {
-        input.setKey(String.valueOf(Character.toUpperCase(character)), -2);
+        input.setKey(String.valueOf(Character.toUpperCase(character)), 2);
         return true;
     }
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-        input.setKeyDown("touchDownX_" + pointer + "_" + button);
-        input.setKeyDown("touchDownY_" + pointer + "_" + button);
+        input.setKey("touchX_" + pointer, screenX);
+        input.setKey("touchY_" + pointer, screenY);
         return false;
     }
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
-        input.setKeyDown("touchUpX_" + pointer + "_" + button);
-        input.setKeyDown("touchUpY_" + pointer + "_" + button);
+        input.setKey("touchX_" + pointer, -1);
+        input.setKey("touchY_" + pointer, -1);
         return true;
     }
 
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
-        return false;
+        input.setKey("touchX_" + pointer, screenX);
+        input.setKey("touchY_" + pointer, screenY);
+        return true;
     }
 
     @Override

@@ -19,8 +19,7 @@ public class HashMapInput implements Input {
 
     @Override
     public void setKeyDown(String keycode) {
-        keys.put(keycode, -1);
-
+        keys.put(keycode, 1);
     }
 
     @Override
@@ -38,12 +37,12 @@ public class HashMapInput implements Input {
 
     @Override
     public boolean keyDown(String keycode) {
-        return keys.get(keycode) != null && keys.get(keycode) < 0;
+        return keys.get(keycode) != null && keys.get(keycode) > 0;
     }
 
     @Override
     public boolean keyUp(String keycode) {
-        return keys.get(keycode) != null && keys.get(keycode) > 0;
+        return keys.get(keycode) != null && keys.get(keycode) < 0;
     }
 
     @Override

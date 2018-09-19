@@ -60,6 +60,9 @@ public class TestScript extends Script {
             log(globalTime.toString());
         }
 
+        log("touchX_0 = " + engine.input.getKey("touchX_0") +
+                " touchY_0 = " + engine.input.getKey("touchY_0"));
+
     }
 
     @Override
