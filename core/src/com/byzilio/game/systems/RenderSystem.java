@@ -43,7 +43,16 @@ public class RenderSystem extends System{
 
     private SpriteBatch batch;
 
+    private Position camera = null;
+
     public RenderSystem() {
+        setName("RenderSystem");
+        setDebug(false);
+        setScale(1.0f);
+    }
+
+    public RenderSystem(Position camera) { //Вот почему в Java нет значений по умолчанию в функициях
+        this.camera = camera;
         setName("RenderSystem");
         setDebug(false);
         setScale(1.0f);
@@ -54,6 +63,19 @@ public class RenderSystem extends System{
         super.create(engine);
         drawObjects = new ArrayList<DrawObject>();
         batch = new SpriteBatch();
+    }
+
+
+    @Override
+    public void start() {
+        super.start();
+        Position camera;
+        if(this.camera == null)
+            camera = new Position(0,0);
+        else
+            camera = this.camera;
+        camera.setName("Camera");
+        engine.getScene().add(camera);
     }
 
     @Override
@@ -69,7 +91,18 @@ public class RenderSystem extends System{
         batch.begin();
         for(int i = 0; i < drawObjects.size(); i++){
             DrawObject current = drawObjects.get(i);
-            current.renderable.draw(current.position.getX(), current.position.getY(), scale, batch);
+            if(current.renderable.onGUI())
+                current.renderable.draw(
+                        current.position.getX(),
+                        current.position.getY(),
+                        scale,
+                        batch);
+            else
+                current.renderable.draw(
+                        current.position.getX() - camera.getX(),
+                        current.position.getY() - camera.getY(),
+                        scale,
+                        batch);
             //Кстати лучше так или java умная и не будет на каждый drawObjects.get(i) доствать?
         }
         batch.flush();
@@ -126,8 +159,6 @@ public class RenderSystem extends System{
                 }
         }
     }
-
-
 
     @Override
     public int size() {

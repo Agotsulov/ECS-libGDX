@@ -60,7 +60,7 @@ public class Game extends com.badlogic.gdx.Game {//Ну не умею я наз�
         engine.add(new MoveSystem());
         engine.add(new ScriptSystem());
 		engine.add(new LogTextSystem());
-		engine.add(new RenderSystem());
+		engine.add(new RenderSystem(new Position(99,99)));
 
 		Scene scene = new ArrayScene();
 
@@ -88,7 +88,7 @@ public class Game extends com.badlogic.gdx.Game {//Ну не умею я наз�
 		engine.changeScene(scene);
 
 
-		e.add(new Position(0, 30));
+		e.add(new Position(10, 30));
 		e.add(new Sprite(1, new Texture("badlogic.jpg"), 100, 100));
         e.add(new Rigidbody(3,0,0,0,10,5,0,0.2f,0));
 		e.add(new TestScript());

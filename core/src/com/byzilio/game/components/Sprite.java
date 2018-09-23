@@ -14,7 +14,7 @@ public class Sprite extends Renderable {
     private float offsetX;
     private float offsetY;
 
-    public Sprite(int layer,Texture texture, float w, float h) {
+    public Sprite(int layer, Texture texture, float w, float h) {
         super(layer);
         setName("Sprite");
         this.texture = texture;
@@ -22,6 +22,7 @@ public class Sprite extends Renderable {
         this.h = h;
         offsetX = 0;
         offsetY = 0;
+        onGUI = false;
         setDebug(false);
     }
 
@@ -33,10 +34,11 @@ public class Sprite extends Renderable {
         this.h = h;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
+        onGUI = false;
         setDebug(false);
     }
 
-    public Sprite(int layer,String texture, float w, float h) {
+    public Sprite(int layer, String texture, float w, float h) {
         super(layer);
         setName("Sprite");
         this.texture = new Texture(texture);
@@ -44,6 +46,7 @@ public class Sprite extends Renderable {
         this.h = h;
         offsetX = 0;
         offsetY = 0;
+        onGUI = false;
         setDebug(false);
     }
 
@@ -55,6 +58,19 @@ public class Sprite extends Renderable {
         this.h = h;
         this.offsetX = offsetX;
         this.offsetY = offsetY;
+        onGUI = false;
+        setDebug(false);
+    }
+
+    public Sprite(int layer, Texture texture, float w, float h, float offsetX, float offsetY, boolean onGUI) {
+        super(layer);
+        setName("Sprite");
+        this.texture = texture;
+        this.w = w;
+        this.h = h;
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
+        this.onGUI = onGUI;
         setDebug(false);
     }
 
