@@ -69,13 +69,18 @@ public class RenderSystem extends System{
     @Override
     public void start() {
         super.start();
-        Position camera;
-        if(this.camera == null)
-            camera = new Position(0,0);
-        else
-            camera = this.camera;
-        camera.setName("Camera");
-        engine.getScene().add(camera);
+        if(camera != null) {
+            camera.setName("Camera");
+            engine.getScene().add(camera);
+        }
+        if(camera == null) {
+            camera = (Position) engine.getScene().get("Camera");
+            if (camera == null) {
+                camera = new Position(0, 0);
+                camera.setName("Camera");
+                engine.getScene().add(camera);
+            }
+        }
     }
 
     @Override

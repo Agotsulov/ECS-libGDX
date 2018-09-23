@@ -42,7 +42,7 @@ public class ArrayListEngine extends Engine{
     public void render(float delta) {
         Gdx.app.log("Engine","update");
 
-        if(!sceneChanged){
+        if(!sceneChanged){ //TODO: Проверить и вытащить это отсюда.
             for(int i = 0;i < size();i++) {
                 get(i).start();
             }
