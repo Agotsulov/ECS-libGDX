@@ -1,27 +1,43 @@
 package com.byzilio.game.components;
 
-import com.byzilio.engine.Component;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.byzilio.game.components.core.Renderable;
 
-public class Button extends Component {
+public class Button extends Renderable {
+
+    private float x;
+    private float y;
 
     private float w;
     private float h;
 
-    private float offsetX;
-    private float offsetY;
+    private Texture texture;
 
-    public Button(float w, float h) {
+    public Button(int layer, float x, float y, float w, float h, String filename) {
+        super(layer);
+        this.x = x;
+        this.y = y;
         this.w = w;
         this.h = h;
-        offsetX = 0;
-        offsetY = 0;
+        this.texture = new Texture(filename);
+        setGUI(true);
     }
 
-    public Button(float w, float h, float offsetX, float offsetY) {
-        this.w = w;
-        this.h = h;
-        this.offsetX = offsetX;
-        this.offsetY = offsetY;
+    public float getX() {
+        return x;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setY(float y) {
+        this.y = y;
     }
 
     public float getW() {
@@ -40,24 +56,21 @@ public class Button extends Component {
         this.h = h;
     }
 
-    public float getOffsetX() {
-        return offsetX;
+    public Texture getTexture() {
+        return texture;
     }
 
-    public void setOffsetX(float offsetX) {
-        this.offsetX = offsetX;
-    }
-
-    public float getOffsetY() {
-        return offsetY;
-    }
-
-    public void setOffsetY(float offsetY) {
-        this.offsetY = offsetY;
+    public void setTexture(Texture texture) {
+        this.texture = texture;
     }
 
     @Override
     public void dispose() {
+        texture.dispose();
+    }
 
+    @Override
+    public void draw(float x, float y, float scale, SpriteBatch batch) {
+        batch.draw(texture, this.x, this.y, w * scale, h * scale);
     }
 }

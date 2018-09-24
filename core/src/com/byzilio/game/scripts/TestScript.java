@@ -77,6 +77,11 @@ public class TestScript extends Script {
     }
 
     @Override
+    public void onClick() {
+        log("CLICK");
+    }
+
+    @Override
     public void onCollision(Entity other) {
         log("onCollide : " + other.getName());
     }

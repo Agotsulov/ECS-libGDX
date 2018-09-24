@@ -8,7 +8,6 @@ public abstract class Renderable extends Component {
     protected int layer = 0;
     protected boolean onGUI = false;
 
-
     public Renderable(int layer) {
         this.layer = layer;
     }

@@ -37,11 +37,11 @@ public class InputAdapter implements InputProcessor {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         input.setKey("touchX_" + pointer, screenX);
-        input.setKey("touchY_" + pointer, screenY);
+        input.setKey("touchY_" + pointer, Gdx.graphics.getHeight() - screenY);
         input.setKey("touchButton_" + pointer, button);
 
         return false;
-    }
+}
 
     @Override
     public boolean touchUp(int screenX, int screenY, int pointer, int button) {
@@ -54,7 +54,7 @@ public class InputAdapter implements InputProcessor {
     @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
         input.setKey("touchX_" + pointer, screenX);
-        input.setKey("touchY_" + pointer, screenY);
+        input.setKey("touchY_" + pointer, Gdx.graphics.getHeight() - screenY);
         return true;
     }
 

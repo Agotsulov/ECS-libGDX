@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.byzilio.engine.Engine;
 import com.byzilio.engine.Entity;
 import com.byzilio.engine.Scene;
+import com.byzilio.game.components.Button;
 import com.byzilio.game.components.сolliders.BoxCollider;
 import com.byzilio.game.components.Position;
 import com.byzilio.game.components.Rigidbody;
@@ -13,6 +14,7 @@ import com.byzilio.game.core.ArrayListEntity;
 import com.byzilio.game.core.ArrayScene;
 import com.byzilio.game.core.HashMapInput;
 import com.byzilio.game.scripts.TestScript;
+import com.byzilio.game.systems.GUISystem;
 import com.byzilio.game.systems.InputSystem;
 import com.byzilio.game.systems.LogTextSystem;
 import com.byzilio.game.systems.MoveSystem;
@@ -57,7 +59,8 @@ public class Game extends com.badlogic.gdx.Game {//Ну не умею я наз�
 		//За порядком лучше следить
 		engine.add(new TimeSystem());
 		engine.add(new InputSystem());
-        engine.add(new MoveSystem());
+        engine.add(new GUISystem());
+		engine.add(new MoveSystem());
         engine.add(new ScriptSystem());
 		engine.add(new LogTextSystem());
 		engine.add(new RenderSystem(new Position(99,99)));
@@ -92,8 +95,9 @@ public class Game extends com.badlogic.gdx.Game {//Ну не умею я наз�
 		e.add(new Sprite(1, new Texture("badlogic.jpg"), 100, 100));
         e.add(new Rigidbody(3,0,0,0,10,5,0,0.2f,0));
 		e.add(new TestScript());
-		e.add(new TestScript());
-		e.add(new TestScript());
+		e.add(new Button(10, 300,300, 100, 100, "test2.png"));
+		//e.add(new TestScript());
+		//e.add(new TestScript());
 		//e.add(new BoxCollider(false,100,150));
 		scene.add(e);
 

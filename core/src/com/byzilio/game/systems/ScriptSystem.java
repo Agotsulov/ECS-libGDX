@@ -67,7 +67,7 @@ public class ScriptSystem extends System {
             Entity e = (Entity) gameObject;
             Container<Component> gameObjects = e.getAll(Script.class);
             for(int j = 0; j < gameObjects.size();j++)
-                if(gameObjects.get(j) instanceof Script) //Узнать что за тип переменных в instansceof
+                if(gameObjects.get(j) instanceof Script)
                     scripts.add(i, (Script) gameObjects.get(j));
         }
     }
