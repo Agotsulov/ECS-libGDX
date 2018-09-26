@@ -13,6 +13,10 @@ import com.byzilio.game.core.ArrayListEngine;
 import com.byzilio.game.core.ArrayListEntity;
 import com.byzilio.game.core.ArrayScene;
 import com.byzilio.game.core.HashMapInput;
+import com.byzilio.game.scenes.StartScene;
+import com.byzilio.game.scenes.TestScene1;
+import com.byzilio.game.scenes.TicTacToe;
+import com.byzilio.game.scripts.ChangeSceneOnClick;
 import com.byzilio.game.scripts.TestScript;
 import com.byzilio.game.systems.GUISystem;
 import com.byzilio.game.systems.InputSystem;
@@ -65,9 +69,9 @@ public class Game extends com.badlogic.gdx.Game {//Ну не умею я наз�
 		engine.add(new LogTextSystem());
 		engine.add(new RenderSystem(new Position(99,99)));
 
-		Scene scene = new ArrayScene();
+		Scene scene = new StartScene();
 
-		Entity e = new ArrayListEntity();
+		//Entity e = new ArrayListEntity();
 		/*
 		scene.add(e);
 		e.add(new LogTextComponent("aAAAAAA"));
@@ -91,26 +95,28 @@ public class Game extends com.badlogic.gdx.Game {//Ну не умею я наз�
 		engine.changeScene(scene);
 
 
-		e.add(new Position(10, 30));
-		e.add(new Sprite(1, new Texture("badlogic.jpg"), 100, 100));
-        e.add(new Rigidbody(3,0,0,0,10,5,0,0.2f,0));
-		e.add(new TestScript());
-		e.add(new Button(10, 300,300, 100, 100, "test2.png"));
-		//e.add(new TestScript());
-		//e.add(new TestScript());
-		//e.add(new BoxCollider(false,100,150));
-		scene.add(e);
+//		e.add(new Position(10, 30));
+//		e.add(new Sprite(1, new Texture("badlogic.jpg"), 100, 100));
+//        e.add(new Rigidbody(3,0,0,0,10,5,0,0.2f,0));
+//		e.add(new TestScript());
+//		e.add(new Button(10, 300,300, 100, 100, "test2.png"));
+//		//e.add(new TestScript());
+//		//e.add(new TestScript());
+//		//e.add(new BoxCollider(false,100,150));
+//		scene.add(e);
+
+
 
 
 		setScreen(engine);
 
-		e = new ArrayListEntity();
-		e.add(new Position(100, 100));
-		e.add(new Sprite(-10,"test1.png", 200, 200, -50, -25));
-		e.add(new Sprite(1,"test2.png", 100, 200));
-		//e.add(new BoxCollider(true,200,200));
-
-		engine.getScene().add(e);
+//		e = new ArrayListEntity();
+//		e.add(new Position(100, 100));
+//		e.add(new Sprite(-10,"test1.png", 200, 200, -50, -25));
+//		e.add(new Sprite(1,"test2.png", 100, 200));
+//		//e.add(new BoxCollider(true,200,200));
+//
+//		engine.getScene().add(e);
 	}
 
 	@Override

@@ -18,6 +18,7 @@ public class ArrayListEngine extends Engine{
 
     private List<System> systems = new ArrayList<System>();
     private Scene scene;
+    private Scene next;
 
     private boolean sceneChanged = true;
 
@@ -28,9 +29,8 @@ public class ArrayListEngine extends Engine{
 
     @Override
     public void changeScene(Scene scene) {
-        this.scene = scene;
-        this.scene.create(this);
-        sceneChanged = false;
+        next = scene;
+        sceneChanged = true;
     }
 
     @Override
@@ -42,23 +42,30 @@ public class ArrayListEngine extends Engine{
     public void render(float delta) {
         Gdx.app.log("Engine","update");
 
-        if(!sceneChanged){ //TODO: Проверить и вытащить это отсюда.
+        if(sceneChanged){ //TODO: Проверить и вытащить это отсюда.
+            clear();
+
+            scene = next;
+            scene.create(this);
+
             for(int i = 0;i < size();i++) {
                 get(i).start();
             }
-            sceneChanged = true;
-        }
 
-        for (int i = 0;i < systems.size();i++){
-            systems.get(i).preUpdate();
+            sceneChanged = false;
         }
+        else {
+            for (int i = 0; i < systems.size(); i++) {
+                systems.get(i).preUpdate();
+            }
 
-        for (int i = 0;i < systems.size();i++){
-            systems.get(i).update();
-        }
+            for (int i = 0; i < systems.size(); i++) {
+                systems.get(i).update();
+            }
 
-        for (int i = 0;i < systems.size();i++){
-            systems.get(i).postUpdate();
+            for (int i = 0; i < systems.size(); i++) {
+                systems.get(i).postUpdate();
+            }
         }
     }
 
@@ -112,9 +119,8 @@ public class ArrayListEngine extends Engine{
 
     @Override
     public void clear() {
-        systems.clear();
         for (int i = 0;i < systems.size();i++)
-            systems.get(i).dispose();
+            systems.get(i).clear();
     }
 
     @Override
