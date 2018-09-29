@@ -3,7 +3,7 @@ package com.byzilio.game.client;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
 import com.badlogic.gdx.backends.gwt.GwtApplicationConfiguration;
-import com.byzilio.Game;
+import com.byzilio.game.Game;
 
 public class HtmlLauncher extends GwtApplication {
 

@@ -3,7 +3,6 @@ package com.byzilio.engine;
 import com.badlogic.gdx.Screen;
 import com.byzilio.engine.core.Container;
 import com.byzilio.engine.core.Input;
-import com.byzilio.game.components.core.Time;
 
 public abstract class Engine implements Screen,Container<System> {
 
